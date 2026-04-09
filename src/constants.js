@@ -46,4 +46,3 @@ export const DYVIX_MODAL_ELEMENT = {
   AUTOCOMPLETE: 'autocomplete',
   CHECKBOX: 'checkbox'
 };
-

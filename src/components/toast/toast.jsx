@@ -53,7 +53,7 @@ export function DyvixToastItem({
 
   return (
     <div className={Class} ref={toastRef}>
-      <span className='dyvix-toast-content'>{message}</span>
+      <span className="dyvix-toast-content">{message}</span>
     </div>
   );
 }

@@ -47,6 +47,7 @@ The modal component is a core Dyvix UI component. It's a config driven, animated
 
     - `validation`
       - : `string | string[]`. Premade validation preset. If the amount is greater than 1 this must be provided as an array of strings with length matching that of the amount.
+
 - `onSubmit`
   - : `function`. A callback function triggered upon form submission. It receives a single `data` object containing all input names along with their value.
 - `onChange`
@@ -170,8 +171,8 @@ function ModalExample() {
         },
         {
           type: DYVIX_MODAL_ELEMENT.CHECKBOX,
-          name: "newsletter",
-          placeholder: "Subscribe to dyvix UI newsletter!",
+          name: 'newsletter',
+          placeholder: 'Subscribe to dyvix UI newsletter!',
           amount: 1
         }
       ]}
