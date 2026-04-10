@@ -1,5 +1,8 @@
 ---
 title: Dyvix Select
+next:
+  text: 'Toast'
+  link: 'components/toast/toast'
 ---
 
 # Dyvix Select

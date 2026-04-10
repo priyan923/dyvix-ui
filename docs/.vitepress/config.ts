@@ -26,7 +26,8 @@ export default defineConfig({
         text: 'Components',
         items: [
           { text: 'Modal', link: 'components/modal/modal' },
-          { text: 'Select', link: 'components/select/select' }
+          { text: 'Select', link: 'components/select/select' },
+          { text: 'Toast', link: 'components/toast/toast' }
         ]
       }
     ],
