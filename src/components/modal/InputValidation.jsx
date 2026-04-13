@@ -162,7 +162,7 @@ function validateElements(elements) {
       if (!element.options || element.options.length === 0) {
         return {
           status: GaurdStatus.Error,
-          error: `Field '${element.id}' requires an options array.`
+          error: `Field '${element.name}' requires an options array.`
         };
       }
 
@@ -173,7 +173,7 @@ function validateElements(elements) {
       ) {
         return {
           status: GaurdStatus.Error,
-          error: `Amount mismatch for '${element.id}'. Expected ${element.amount} option sets.`
+          error: `Amount mismatch for '${element.name}'. Expected ${element.amount} option sets.`
         };
       }
     }
