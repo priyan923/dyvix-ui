@@ -277,6 +277,7 @@ function Modal({
                       ariaAttributes['aria-required'] =
                         ariaProps['aria-required'];
                     }
+                    const options = Tag === 'select' || elementDef.tag === 'DynamicSelect' ? Array.isArray(field.options[0]) ? field.options[j]: field.options : [];
 
                     const Tagprobs = {
                       className: `modal-element ` + elementDef['default-class'],
@@ -296,7 +297,7 @@ function Modal({
                           field.type === 'password' ? 'current-password' : 'on'
                       }),
                       ...(elementDef.tag === 'DynamicSelect' && {
-                        elements: field.options[j],
+                        elements: options,
                         animation: '!/',
                         Class: 'modal-element'
                       })
@@ -317,7 +318,7 @@ function Modal({
                             <option disabled value="">
                               {field.placeholder[j]}
                             </option>
-                            {field.options[j].map((opt, index) => (
+                            {options.map((opt, index) => (
                               <option
                                 role="option"
                                 key={index}
