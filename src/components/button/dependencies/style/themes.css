@@ -1,0 +1,17 @@
+.dyvix-button-lens {
+  background: radial-gradient(circle, #000000 0%, #1a1a1a 100%);
+  box-shadow: 0 0 30px #b903e2;
+  -webkit-box-shadow: 0 0 30px #b903e2;
+  -moz-box-shadow: 0 0 30px #b903e2;
+  border: #450343 3px double;
+  border-radius: 10rem;
+  transition: all 0.3s ease-in-out;
+}
+.dyvix-button-lens:hover {
+  border: #000000 3px double;
+  transform: scale(1.09);
+}
+.dyvix-button-lens:active {
+  border: #000000 5px double;
+  transform: scale(1.09);
+}

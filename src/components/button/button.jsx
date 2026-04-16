@@ -1,6 +1,9 @@
 import React from 'react';
 import './dependencies/style/style.css';
+import './dependencies/style/themes.css';
+
 import animationsData from '../animations.json';
+import themesData from './dependencies/themes.json';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -17,10 +20,9 @@ function DyvixButton({
 }) {
   const btnRef = React.useRef(null);
 
-  /* const currentTheme = themesData.find(
+  const currentTheme = themesData.find(
     (e) => e.theme.trim().toLowerCase() === theme.trim().toLowerCase()
   );
-*/
   const currentAnimation = animation
     ? animationsData.find(
         (e) =>
@@ -34,7 +36,7 @@ function DyvixButton({
     }
   }
 
-  className = `dyvix-button ${className}`;
+  className = `dyvix-button ${currentTheme.class} ${className}`;
 
   useGSAP(() => {
     if (!btnRef.current || !currentAnimation) return;
