@@ -3,10 +3,7 @@ import './dependencies/style/style.css';
 import './dependencies/style/themes.css';
 import animationsData from '../animations.json';
 import themesData from './dependencies/themes.json';
-import {
-  EvaluateFailure,
-  GaurdStatus
-} from '../../utils/DyvixGuard';
+import { EvaluateFailure, GaurdStatus } from '../../utils/DyvixGuard';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Validatebtn } from './validation';
@@ -44,7 +41,7 @@ function DyvixButton({
 
   className = `dyvix-button${currentTheme ? ` ${currentTheme.class}` : ''}${className !== '' ? ` ${className}` : ''}`;
 
-  const validator = Validatebtn(animation,theme);
+  const validator = Validatebtn(animation, theme);
 
   if (validator.status === GaurdStatus.Error) {
     return EvaluateFailure(validator.error, validator.status);

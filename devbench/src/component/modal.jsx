@@ -13,7 +13,7 @@ export function ModalTest() {
       theme={DYVIX_MODAL_THEME.MIDNIGHT}
       animation={DYVIX_GLOBAL_ANIMATION.UNFOLD}
       preset={'Login'}
-      onSubmit={(data) => console.log(data)}
+      //onSubmit={(data) => console.log(data)}
     />
   );
 }
