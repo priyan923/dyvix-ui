@@ -12,7 +12,7 @@ import {
   ExecuteValidator,
   ExecuteRegex
 } from './dependencies/validator/validators';
-import { cachelayerThree, CACHETYPE } from '../../utils/Smart Json Caching/SJCManager';
+import { SJCManager, CACHETYPE } from '../../utils/Smart Json Caching/SJCManager';
 import React from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -69,7 +69,7 @@ function Modal({
     onSubmit
   );
   const modalRef = React.useRef(null);
-  cachelayerThree("../../components/modal/dependencies/themes.json" ,"../../components/modal/dependencies/style/themes.css", CACHETYPE.CSS);
+  console.log(SJCManager("../../components/modal/dependencies/themes.json" ,"../../components/modal/dependencies/style/themes.css", CACHETYPE.CSS, "Modal", "theme", "Industrial", "class"));
   function handleInputChange(name, value) {
     const validation = handleValidation();
     const nextData = { ...data, [name]: value };
