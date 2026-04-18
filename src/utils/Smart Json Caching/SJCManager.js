@@ -1,6 +1,30 @@
+import { EvaluateFailure, GaurdStatus} from "../DyvixGuard";
+
 export const CACHETYPE = { CSS: 'css', ANIMATION: 'animation' };
 
-export function cachelayerThree(type, classname = 'None', jsonpath) {
+export function cachelayerThree(jsonpath, csspath) {
+  let rawJSON;
+  let rawCSS;
+
+  rawJSON = extractFile(jsonpath);
+  if (type === CACHETYPE.CSS) {
+    rawCSS = extractFile(csspath);
+  }
+}
+
+
+function extractFile(path)
+{
+  try {
+    const module = await import(/* @vite-ignore */ `${path}?raw`);
+    return module.default || module;
+  } catch (error) {
+    console.log('DyvixUI Sys error');
+    return null;
+  }
+}
+
+export function cachelayerOne(type, classname = 'None', jsonpath) {
   extractCSSClass(
     'dyvix-modal-ember',
     '../../components/modal/dependencies/style/themes.css'
