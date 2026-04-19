@@ -57,17 +57,7 @@ function Modal({
   const [errors, SetErrors] = React.useState({});
   const [visibility, SetVisibility] = React.useState(true);
   const [status, SetStatus] = React.useState('entering');
-  const fields = SerializeData(
-    title,
-    type,
-    elements,
-    preset,
-    theme,
-    animation,
-    Id,
-    Class,
-    onSubmit
-  );
+  const [fields, SetFields] =  React.useState(null);
   const modalRef = React.useRef(null);
   function handleInputChange(name, value) {
     const validation = handleValidation();
@@ -121,9 +111,6 @@ function Modal({
     }
   }
 
-  if (fields === null) {
-    return null;
-  }
   const currentType = typesData.find(
     (e) => e.type.trim().toLowerCase() === type.trim().toLowerCase()
   );
@@ -156,33 +143,55 @@ function Modal({
     8: '48rem',
     9: '53rem'
   };
-  let idealSize = heightMap[fields.length] || '26rem';
+  let idealSize = heightMap[fields?.length] || '26rem';
   const geometryBuffer = currentTheme['radiused']
-    ? (2.5 * fields.length) / 3
+    ? (2.5 * fields?.length) / 3
     : 0;
   idealSize = `calc(${idealSize} + ${geometryBuffer}rem)`;
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   const dynamicHeight = isMobile ? `min(${idealSize}, 95vh)` : idealSize;
   const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
-  const isCentered = fields.length <= 5;
+  const isCentered = fields?.length <= 5;
   const dynamicMargin = isCentered ? '15vh auto' : '1.5rem auto';
-
+  const modalStyles = {
+    height: dynamicHeight,
+    width: dynamicWidth,
+    margin: dynamicMargin,
+    transition: 'all 0.3s ease-out'
+  };
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
   }
 
+  React.useEffect(()=> {    
+    async function GetFields() {
+      const data = await SerializeData(
+        title,
+        type,
+        elements,
+        preset,
+        theme,
+        animation,
+        Id,
+        Class,
+        onSubmit
+      );
+
+      console.log(data)
+      SetFields(data);
+    }    
+    
+    GetFields();
+
+  }, [theme]);
+
   React.useEffect(() => {
-    fields.forEach((field) => {
+    fields?.forEach((field) => {
       field.name.forEach((name) => {
         SetData((prev) => ({ ...prev, [name]: null }));
       });
     });
-
-    (async () => {
-    const res = await SJCManager("../../components/modal/dependencies/themes.json" ,"../../components/modal/dependencies/style/themes.css", CACHETYPE.CSS, "Modal", "theme", "Industrial", "class");
-    console.log(res);
-  })();
-  }, []);
+  }, [fields]);
 
   // Auto-focus for the first input when modal opens
   React.useEffect(() => {
@@ -227,11 +236,7 @@ function Modal({
             className={`modal ${serilaizedClass}`}
             id={Id}
             ref={modalRef}
-            style={{
-              height: dynamicHeight,
-              width: dynamicWidth,
-              position: 'relative'
-            }}
+            style={modalStyles}
           >
             {currentType.closable && (
               <button
@@ -247,7 +252,7 @@ function Modal({
               </button>
             )}
             <h3 id="modal-header">{title}</h3>
-            {fields.map((field, i) => {
+            {fields?.map((field, i) => {
               const elementDef =
                 elementsData.find((e) => e.element === field.type) ||
                 elementsData.find((e) =>

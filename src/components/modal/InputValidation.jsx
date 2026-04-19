@@ -36,7 +36,7 @@ const supportedTypes = [
   'checkbox'
 ];
 
-export function SerializeData(
+export async function SerializeData(
   title,
   type,
   elements,
@@ -45,7 +45,8 @@ export function SerializeData(
   animation,
   Id,
   Class,
-  onSubmit
+  onSubmit,
+  callback
 ) {
   const validator = ValidateInput(
     title,
@@ -56,7 +57,8 @@ export function SerializeData(
     animation,
     Id,
     Class,
-    onSubmit
+    onSubmit,
+    callback
   );
 
   if (validator.status === GaurdStatus.Error) {
@@ -304,4 +306,22 @@ function checkDuplicates(elements, field) {
   }
 
   return { status: GaurdStatus.Success };
+}
+
+async function ValidatAndLoadTheme(theme, callback) {
+  const res = await SJCManager(
+    '../../components/modal/dependencies/themes.json',
+    '../../components/modal/dependencies/style/themes.css',
+    CACHETYPE.CSS,
+    'Modal',
+    'theme',
+    theme,
+    'class'
+  );
+
+  callback((prev) => {
+    if (prev.theme === theme) return prev;
+    return { ...prev, theme: theme };
+  });
+  return res !== null;
 }
