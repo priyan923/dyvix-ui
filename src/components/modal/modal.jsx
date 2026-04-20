@@ -1,26 +1,24 @@
 import elementsData from './dependencies/elements.json';
-import themesData from './dependencies/themes.json';
 import DynamicSelect from '../select/SelectCompiler';
-import animationsData from '../animations.json';
 import validationData from './dependencies/validator/validators.json';
 import typesData from './dependencies/types.json';
 import presetData from './dependencies/presets.json';
 import './dependencies/style/elements.css';
-import './dependencies/style/themes.css';
 import * as validatorsFunctions from './dependencies/validator/validators';
 import {
   ExecuteValidator,
   ExecuteRegex
 } from './dependencies/validator/validators';
-import { SJCManager, CACHETYPE } from '../../utils/Smart Json Caching/SJCManager';
+import {
+  SJCManager,
+  CACHETYPE
+} from '../../utils/Smart Json Caching/SJCManager';
 import React from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SerializeData } from './InputValidation';
 
-export const vaildThemes = themesData.map((e) => e.theme);
 export const validType = typesData.map((e) => e.type);
-export const validAnimations = animationsData.map((e) => e.animation);
 export const validPreset = presetData.map((e) => e.preset);
 export const validRules = validationData.map((e) => e.preset);
 
@@ -57,17 +55,8 @@ function Modal({
   const [errors, SetErrors] = React.useState({});
   const [visibility, SetVisibility] = React.useState(true);
   const [status, SetStatus] = React.useState('entering');
-  const fields = SerializeData(
-    title,
-    type,
-    elements,
-    preset,
-    theme,
-    animation,
-    Id,
-    Class,
-    onSubmit
-  );
+  const [configs, SetConfig] = React.useState({});
+  const [fields, SetFields] = React.useState(null);
   const modalRef = React.useRef(null);
   function handleInputChange(name, value) {
     const validation = handleValidation();
@@ -121,29 +110,18 @@ function Modal({
     }
   }
 
-  if (fields === null) {
-    return null;
-  }
   const currentType = typesData.find(
     (e) => e.type.trim().toLowerCase() === type.trim().toLowerCase()
   );
-  const currentTheme = themesData.find(
-    (e) => e.theme.trim().toLowerCase() === theme.trim().toLowerCase()
-  );
+  const currentTheme = configs['theme'];
   const animationQuery =
     animation === '!/' ? currentTheme['default-animation'] : animation;
-  const currentAnimation = animation
-    ? animationsData.find(
-        (e) =>
-          e.animation.trim().toLowerCase() ===
-          animationQuery.trim().toLowerCase()
-      )
-    : null;
+  const currentAnimation = configs['animation']; // add default animation for this new update
   const currentPreset = presetData.find(
     (e) => e.preset.trim().toLowerCase() === preset.trim().toLowerCase()
   );
   const serilaizedClass =
-    Class + ` ${currentTheme.class}` + ` ${currentType.class}`;
+    Class + ` ${currentTheme?.class}` + ` ${currentType.class}`;
   // Dynamicily calculate modal sizing and position
   const heightMap = {
     1: '23rem',
@@ -156,34 +134,53 @@ function Modal({
     8: '48rem',
     9: '53rem'
   };
-  let idealSize = heightMap[fields.length] || '26rem';
-  const geometryBuffer = currentTheme['radiused']
-    ? (2.5 * fields.length) / 3
+  let idealSize = heightMap[fields?.length] || '26rem';
+  const geometryBuffer = currentTheme?.radiused
+    ? (2.5 * fields?.length) / 3
     : 0;
   idealSize = `calc(${idealSize} + ${geometryBuffer}rem)`;
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   const dynamicHeight = isMobile ? `min(${idealSize}, 95vh)` : idealSize;
   const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
-  const isCentered = fields.length <= 5;
-  const dynamicMargin = isCentered ? '15vh auto' : '1.5rem auto';
-
+  const isCentered = fields?.length <= 5;
+  const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
+  const modalStyles = {
+    height: dynamicHeight,
+    width: dynamicWidth,
+    margin: dynamicMargin,
+    transition: 'all 0.3s ease-out'
+  };
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
   }
+  React.useEffect(() => {
+    async function GetFields() {
+      const data = await SerializeData(
+        title,
+        type,
+        elements,
+        preset,
+        theme,
+        animation,
+        Id,
+        Class,
+        onSubmit,
+        SetConfig
+      );
+
+      SetFields(data);
+    }
+
+    GetFields();
+  }, [theme]);
 
   React.useEffect(() => {
-    fields.forEach((field) => {
+    fields?.forEach((field) => {
       field.name.forEach((name) => {
         SetData((prev) => ({ ...prev, [name]: null }));
       });
     });
-    /*
-    (async () => {
-    const res = await SJCManager("../../components/modal/dependencies/themes.json" ,"../../components/modal/dependencies/style/themes.css", CACHETYPE.CSS, "Modal", "theme", "Industrial", "class");
-    console.log(res);
-  })();
-  */
-  }, []);
+  }, [fields]);
 
   // Auto-focus for the first input when modal opens
   React.useEffect(() => {
@@ -228,11 +225,7 @@ function Modal({
             className={`modal ${serilaizedClass}`}
             id={Id}
             ref={modalRef}
-            style={{
-              height: dynamicHeight,
-              width: dynamicWidth,
-              position: 'relative'
-            }}
+            style={modalStyles}
           >
             {currentType.closable && (
               <button
@@ -240,15 +233,15 @@ function Modal({
                 onClick={() => handleModalClose()}
                 aria-label="Close modal"
                 style={{
-                  top: currentTheme.radiused ? '2rem' : '1rem',
-                  right: currentTheme.radiused ? '9rem' : '1rem'
+                  top: currentTheme?.radiused ? '2rem' : '1rem',
+                  right: currentTheme?.radiused ? '9rem' : '1rem'
                 }}
               >
                 ✕
               </button>
             )}
             <h3 id="modal-header">{title}</h3>
-            {fields.map((field, i) => {
+            {fields?.map((field, i) => {
               const elementDef =
                 elementsData.find((e) => e.element === field.type) ||
                 elementsData.find((e) =>

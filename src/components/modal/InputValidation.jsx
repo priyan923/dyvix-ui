@@ -1,11 +1,4 @@
-import {
-  validType,
-  vaildThemes,
-  validAnimations,
-  eleData,
-  validPreset,
-  validRules
-} from './modal';
+import { validType, eleData, validPreset, validRules } from './modal';
 import presetData from './dependencies/presets.json';
 import {
   EvaluateFailure,
@@ -13,7 +6,27 @@ import {
   allowsNull
 } from '../../utils/DyvixGuard';
 import { isValidRegex } from './dependencies/validator/validators';
+import { ValidatAndLoadJSON } from '../../utils/Smart Json Caching/SJCManager';
 
+const CacheMapping = {
+  theme: {
+    jsonpath: '../../components/modal/dependencies/themes.json',
+    csspath: '../../components/modal/dependencies/style/themes.css'
+  },
+  animation: {
+    jsonpath: '../../components/animations.json',
+    csspath: null
+  },
+  presets: {
+    jsonpath: '../../.components/modal/dependencies/presets.json',
+    csspath: null
+  },
+  types: {
+    jsonpath: '../../components/modal/dependencies/types.json',
+    csspath: null
+  }
+};
+const component = 'Modal';
 const defaultElement = {
   type: '!/',
   placeholder: ['!/'],
@@ -36,7 +49,7 @@ const supportedTypes = [
   'checkbox'
 ];
 
-export function SerializeData(
+export async function SerializeData(
   title,
   type,
   elements,
@@ -45,9 +58,10 @@ export function SerializeData(
   animation,
   Id,
   Class,
-  onSubmit
+  onSubmit,
+  callback
 ) {
-  const validator = ValidateInput(
+  const validator = await ValidateInput(
     title,
     type,
     elements,
@@ -56,7 +70,8 @@ export function SerializeData(
     animation,
     Id,
     Class,
-    onSubmit
+    onSubmit,
+    callback
   );
 
   if (validator.status === GaurdStatus.Error) {
@@ -79,7 +94,7 @@ export function SerializeData(
 
   return normalizedElements;
 }
-export function ValidateInput(
+export async function ValidateInput(
   title,
   type,
   elements,
@@ -88,7 +103,8 @@ export function ValidateInput(
   animation,
   Id,
   Class,
-  onSubmit
+  onSubmit,
+  callback
 ) {
   if (preset !== '!/') {
     if (!validPreset.includes(preset)) {
@@ -99,17 +115,24 @@ export function ValidateInput(
     }
   }
 
-  if (
-    animation !== '!/' &&
-    !validAnimations.includes(animation) &&
-    allowsNull(animation)
-  ) {
+  const [isAnimation, isTheme] = await Promise.all([
+    ValidatAndLoadJSON(
+      CacheMapping,
+      animation,
+      callback,
+      'animation',
+      component
+    ),
+    ValidatAndLoadJSON(CacheMapping, theme, callback, 'theme', component)
+  ]);
+
+  if (animation !== '!/' && !isAnimation && allowsNull(animation)) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a vaild animation.'
     };
   }
-  if (!vaildThemes.includes(theme)) {
+  if (!isTheme) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a vaild theme.'
