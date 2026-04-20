@@ -13,11 +13,9 @@ export async function SJCManager(
   jsonKey,
   jsonclasskey = ''
 ) {
-  const layerOneResult = null; // plug the actual func
-  if (layerOneResult !== null) return layerOneResult;
-  const layerTwoResult = null; // plug the actual func
-  if (layerTwoResult !== null) return layerTwoResult;
-  const layerThreeResult = await cachelayerThree(
+  let result = null;
+  const key = generateCacheKey(3, component, utility);
+  result = await cachelayerOne()
     jsonpath,
     csspath,
     type,
@@ -25,14 +23,39 @@ export async function SJCManager(
     component,
     utility,
     jsonKey,
-    jsonclasskey
+    jsonclasskey,
+    key
+  ;
+
+  if(result === null) result = await cachelayerTwo(
+    jsonpath,
+    csspath,
+    type,
+    3,
+    component,
+    utility,
+    jsonKey,
+    jsonclasskey,
+    key
   );
-  const key = generateCacheKey(2, component, utility);
-  if (layerThreeResult === null) return layerThreeResult;
-  if (layerThreeResult?.CSS) {
-    InjectCSS(layerThreeResult.CSS, key);
+  if(result === null) result = await cachelayerThree(
+    jsonpath,
+    csspath,
+    type,
+    3,
+    component,
+    utility,
+    jsonKey,
+    jsonclasskey,
+    key
+  );
+
+  if(result === null) return result;
+
+  if (result?.CSS) {
+    InjectCSS(result.CSS, key);
   }
-  return layerThreeResult.JSON;
+  return result.JSON;
 }
 
 async function cachelayerThree(
@@ -43,9 +66,9 @@ async function cachelayerThree(
   component,
   utility,
   jsonKey,
-  jsonclasskey
+  jsonclasskey,
+  key
 ) {
-  const key = generateCacheKey(3, component, utility);
   let JsonArray = null;
   let rawCSS = null;
   let cssResult = null;
@@ -82,6 +105,8 @@ async function cachelayerThree(
   };
   return result;
 }
+
+// Caches only the config ever used
 async function cachelayerTwo(
   jsonpath,
   csspath,
@@ -90,10 +115,11 @@ async function cachelayerTwo(
   component,
   utility,
   jsonKey,
-  jsonclasskey
+  jsonclasskey,
+  key
 ) {
-  const key = generateCacheKey(2, component, utility);
 
+return null
   if (localStorage.getItem(key)) {
     return JSON.parse(localStorage.getItem(key));
   }
@@ -118,7 +144,17 @@ async function cachelayerTwo(
   return JSON.stringify(value);
 }
 
-async function cachelayerOne(type, classname = 'None', jsonpath) {
+async function cachelayerOne(  
+  jsonpath,
+  csspath,
+  type,
+  layer,
+  component,
+  utility,
+  jsonKey,
+  jsonclasskey,
+  key) {
+  return null
   extractCSSClass(
     'dyvix-modal-ember',
     '../../components/modal/dependencies/style/themes.css'

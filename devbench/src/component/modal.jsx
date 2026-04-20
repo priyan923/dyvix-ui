@@ -11,7 +11,7 @@ export function ModalTest() {
   return (
     <Modal
       theme={DYVIX_MODAL_THEME.MIDNIGHT}
-      animation={DYVIX_GLOBAL_ANIMATION.UNFOLD}
+      animation={DYVIX_GLOBAL_ANIMATION.AURORA}
       preset={'Login'}
       //onSubmit={(data) => console.log(data)}
     />
