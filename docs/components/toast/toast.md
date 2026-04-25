@@ -1,5 +1,8 @@
 ---
 title: Dyvix Toast
+next:
+  text: 'Button'
+  link: 'components/button/button'
 ---
 
 # Dyvix Toast

@@ -52,7 +52,8 @@ export default defineConfig({
             ]
           },
           { text: 'Select', link: 'components/select/select' },
-          { text: 'Toast', link: 'components/toast/toast' }
+          { text: 'Toast', link: 'components/toast/toast' },
+          { text: 'Button', link: 'components/button/button' }
         ]
       }
     ],
