@@ -14,9 +14,21 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  border: 3px dashed black;
+  border: 3px dashed rgba(0, 0, 0, 0.3);
   border-radius: 2rem;
   background-color: rgb(73, 220, 237);
+  transition:
+    transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.dyvix-file:hover {
+  transform: scale(1.03);
+  background-color: rgb(63, 210, 227);
+  border-color: rgba(0, 0, 0, 0.6);
+}
+.dyvix-file:active {
+  transform: scale(0.98);
 }
 .dyvix-file-hidden {
   position: absolute;
@@ -37,7 +49,8 @@
   align-items: center;
 }
 .dyvix-file-ui p {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
   font-weight: 600;
   margin: 0;
   color: rgba(0, 0, 0, 0.8);

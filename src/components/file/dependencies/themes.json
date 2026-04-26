@@ -1,0 +1,12 @@
+[
+  {
+    "theme": "Singularity",
+    "class": "dyvix-file-lens",
+    "default-animation": "bubble"
+  },
+  {
+    "theme": "Industrial",
+    "class": "dyvix-file-industrial",
+    "default-animation": "fade"
+  }
+]
