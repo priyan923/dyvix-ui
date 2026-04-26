@@ -30,22 +30,28 @@ export async function Validatefile(animation, theme, callback, instance) {
       'animation',
       component
     ),
-    null
+    ValidatAndLoadJSON(
+      CacheMapping,
+      normalizedTheme,
+      callback,
+      'theme',
+      component,
+      instance
+    )
   ]);
-  if (normalizedAnimation !== "" && !isAnimation.status) {
+  if (normalizedAnimation !== '' && !isAnimation.status) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a valid animation.'
     };
   }
-  /*
-  if (normalizedTheme !== '!/' && !isTheme.status) {
+
+  if (normalizedTheme !== '' && !isTheme.status) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a valid theme.'
     };
   }
-    */
 
   return { status: GaurdStatus.Success };
 }

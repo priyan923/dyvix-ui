@@ -1,0 +1,14 @@
+.dyvix-file-lens {
+  border: 4px dashed #3c0349;
+  background-color: #1f2937;
+  background: radial-gradient(circle, #000000 0%, #1a1a1a 100%);
+  box-shadow: 0 0 30px #b903e2;
+  -webkit-box-shadow: 0 0 30px #b903e2;
+  -moz-box-shadow: 0 0 30px #b903e2;
+}
+.dyvix-file-lens p {
+  color: whitesmoke;
+}
+.dyvix-file-industrial {
+  background-color: rgb(108, 187, 11);
+}
