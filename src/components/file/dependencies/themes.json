@@ -8,5 +8,10 @@
     "theme": "Industrial",
     "class": "dyvix-file-industrial",
     "default-animation": "fade"
+  },
+  {
+    "theme": "Ember",
+    "class": "dyvix-file-ember",
+    "default-animation": "glitch"
   }
 ]
