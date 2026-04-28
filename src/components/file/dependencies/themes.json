@@ -18,5 +18,10 @@
     "theme": "Frost",
     "class": "dyvix-file-frost",
     "default-animation": "unfold"
+  },
+  {
+    "theme": "Blade",
+    "class": "dyvix-file-blade",
+    "radiused": false
   }
 ]

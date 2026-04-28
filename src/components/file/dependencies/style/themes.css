@@ -115,3 +115,35 @@
   color: #f8f8f840;
   text-shadow: 0 0 8px rgba(213, 255, 248, 0.6);
 }
+.dyvix-file-blade {
+  background-color: #0a0a0a;
+  border-radius: 0px;
+  border-left: 3px solid #e2e8f0;
+  border-top: 3px solid #e2e8f0;
+  border-right: 1px solid #ffffff20;
+  border-bottom: 1px solid #ffffff20;
+  box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.05);
+  -moz-box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.05);
+  transition:
+    border-left 0.1s ease-in-out,
+    border-top 0.1s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    -webkit-box-shadow 0.2s ease-in-out,
+    -moz-box-shadow 0.2s ease-in-out;
+}
+.dyvix-file-blade p {
+  color: #e2e8f0;
+  transition:   color 0.1s ease-in-out;
+}
+.dyvix-file-blade:hover {
+  background-color: #0a0a0a;
+  border-left: 4px solid #ffffff;
+  border-top: 4px solid #ffffff;
+  box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
+}
+.dyvix-file-blade:hover p {
+  color: #ffffff;
+}
