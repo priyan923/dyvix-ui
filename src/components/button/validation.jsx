@@ -18,28 +18,29 @@ const CacheMapping = {
 };
 
 export async function Validatebtn(animation, theme, callback, instance) {
-  const normalizedAnimation = animation?.trim().toLowerCase();
+  let normalizedAnimation = animation?.trim().toLowerCase();
   const normalizedTheme =
     theme?.trim().charAt(0).toUpperCase() + theme.trim().slice(1);
 
-  const [isAnimation, isTheme] = await Promise.all([
-    ValidatAndLoadJSON(
-      CacheMapping,
-      normalizedAnimation,
-      callback,
-      'animation',
-      component
-    ),
-    ValidatAndLoadJSON(
-      CacheMapping,
-      normalizedTheme,
-      callback,
-      'theme',
-      component,
-      instance
-    )
-  ]);
-  if (normalizedAnimation !== null && !isAnimation.status) {
+  const isTheme = await ValidatAndLoadJSON(
+    CacheMapping,
+    normalizedTheme,
+    callback,
+    'theme',
+    component,
+    instance
+  );
+  if (normalizedAnimation === '!/' && isTheme?.config?.theme) {
+    normalizedAnimation = isTheme?.config?.theme['default-animation'];
+  }
+  const isAnimation = await ValidatAndLoadJSON(
+    CacheMapping,
+    normalizedAnimation,
+    callback,
+    'animation',
+    component
+  );
+  if (!isAnimation.status && !allowsNull(normalizedAnimation)) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a valid animation.'

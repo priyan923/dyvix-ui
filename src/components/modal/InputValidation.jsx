@@ -104,21 +104,24 @@ export async function ValidateInput(
   callback,
   instance
 ) {
-  const [isAnimation, isTheme, isPreset] = await Promise.all([
+  const isTheme = await ValidatAndLoadJSON(
+    CacheMapping,
+    theme,
+    callback,
+    'theme',
+    component,
+    instance
+  );
+  if (animation === '!/') {
+    animation = isTheme.config.theme['default-animation'];
+  }
+  const [isAnimation, isPreset] = await Promise.all([
     ValidatAndLoadJSON(
       CacheMapping,
       animation,
       callback,
       'animation',
       component
-    ),
-    ValidatAndLoadJSON(
-      CacheMapping,
-      theme,
-      callback,
-      'theme',
-      component,
-      instance
     ),
     ValidatAndLoadJSON(CacheMapping, preset, callback, 'preset', component)
   ]);

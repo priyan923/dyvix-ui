@@ -3,13 +3,7 @@ import { DYVIX_MODAL_THEME } from 'dyvix-ui';
 export function ButtonTest() {
   return (
     <>
-      <DyvixButton
-        onClick={() => console.log('clicked')}
-        animation={'bubble'}
-        theme={DYVIX_MODAL_THEME.MIDNIGHT}
-      >
-        Submit
-      </DyvixButton>
+      <DyvixButton onClick={() => console.log('clicked')}>Submit</DyvixButton>
     </>
   );
 }

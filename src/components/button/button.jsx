@@ -17,7 +17,7 @@ import Version from '../../../package.json';
  */
 function DyvixButton({
   children = 'Click Me',
-  animation = 'fade',
+  animation = '!/',
   className = '',
   theme = '!/',
   background,
@@ -32,7 +32,6 @@ function DyvixButton({
 
   const currentTheme = configs['theme'];
   const currentAnimation = animation ? configs['animation'] : null;
-
   function handleClick() {
     if (typeof onClick === 'function') {
       onClick();

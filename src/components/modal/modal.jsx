@@ -120,9 +120,7 @@ function Modal({
     (e) => e.type.trim().toLowerCase() === type.trim().toLowerCase()
   );
   const currentTheme = configs['theme'];
-  const animationQuery =
-    animation === '!/' ? currentTheme?.['default-animation'] : animation;
-  const currentAnimation = configs['animation']; // add default animation for this new update
+  const currentAnimation = configs['animation'];
   const currentPreset = configs['preset'];
   const serilaizedclassName =
     className + ` ${currentTheme?.class}` + ` ${currentType.class}`;

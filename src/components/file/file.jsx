@@ -8,9 +8,9 @@ import { Validatefile } from './validation';
 
 function DyvixFile({
   label = 'Upload File',
-  animation = '',
+  animation = '!/',
   className = '',
-  theme = '',
+  theme = '!/',
   background,
   color,
   multiple = false,

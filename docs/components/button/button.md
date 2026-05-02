@@ -5,8 +5,6 @@ next:
   link: 'components/file/file'
 ---
 
----
-
 # Dyvix Button
 
 A config-driven animated button component with support for themed and default coloring styles.
