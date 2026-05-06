@@ -21,9 +21,10 @@ export function ModalTest() {
           type: 'password',
           placeholder: ['New Password', 'fgfg'],
           validation: 'password',
-          id: ['new-password', 'new-passwordx'],
+          id: ['new-password', 'new-passwordx', '33'],
           name: ['newPassword', 'test'],
-          amount: 2
+          amount: 2,
+          match: ['confirm-password', 'confirm-password']
         },
         {
           type: 'password',
@@ -32,7 +33,7 @@ export function ModalTest() {
           id: 'confirm-password',
           name: 'confirmPassword',
           amount: 1,
-          match: ['new-password']
+          
         }
       ]}
       onSubmit={(data) => console.log(data)}
