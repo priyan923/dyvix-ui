@@ -61,7 +61,7 @@ function Modal({
   const [visibility, SetVisibility] = React.useState(true);
   const [status, SetStatus] = React.useState('entering');
   const [configs, SetConfig] = React.useState({});
-  const [fields, SetFields] = React.useState(null);
+  const [fields, SetFields] = React.useState([]);
   const instanceId = React.useId();
   const modalRef = React.useRef(null);
   function handleInputChange(name, value) {
@@ -81,8 +81,28 @@ function Modal({
   function handleValidation() {
     const newErrors = {};
     for (const field of fields) {
+      if (Array.isArray(field.match)) {
+        for (const [i, matchTo] of field.match.entries()) {
+          if (matchTo) {
+            const matchToFields = fields.find((f) => f.id.includes(matchTo));
+            if (matchToFields) {
+              const matchToIndex = matchToFields.id.findIndex(
+                (f) => f === matchTo
+              );
+              const matchToName = matchToFields.name[matchToIndex];
+              const sourceValue = data[field.name[i]];
+              const targetValue = data[matchToName];
+              if (sourceValue && targetValue && sourceValue !== targetValue) {
+                newErrors[field.name[i]] =
+                  `${field.id[i]} must match ${matchTo}`;
+              }
+            }
+          }
+        }
+      }
       if (!field.validation) continue;
       for (const [index, currentName] of field.name.entries()) {
+        if (newErrors[currentName]) continue;
         let currentValidation = field.validation[index];
         let result = null;
         if (!currentValidation) continue;
@@ -102,7 +122,9 @@ function Modal({
           result = ExecuteValidator(data[currentName], validators.validators);
         }
         if (result) {
-          newErrors[currentName] = result.status ? null : result.error;
+          if (!newErrors[currentName]) {
+            newErrors[currentName] = result.status ? null : result.error;
+          }
         }
       }
     }
@@ -228,7 +250,13 @@ function Modal({
   return (
     <>
       {visibility && (
-        <div ref={modalRef} className="dyvix-modal-wrapper" role="dialog" aria-modal="true" aria-labelledby="modal-header">
+        <div
+          ref={modalRef}
+          className="dyvix-modal-wrapper"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-header"
+        >
           <div
             className={`modal ${serilaizedclassName}`}
             id={Id}
@@ -307,7 +335,10 @@ function Modal({
                           : field.options
                         : [];
                     const fieldError = errors[name];
-                    const ErrorId = `${id && id !== '!/' ? id: field.placeholder[j]}-error`.toLowerCase().replace(/[^a-z0-9-]/g, '-');;
+                    const ErrorId =
+                      `${id && id !== '!/' ? id : field.placeholder[j]}-error`
+                        .toLowerCase()
+                        .replace(/[^a-z0-9-]/g, '-');
                     const Tagprobs = {
                       className: `modal-element ` + elementDef['default-class'],
                       name: name,
@@ -319,7 +350,7 @@ function Modal({
                       ...(id && id !== '!/' && { id: id }),
                       ...(elementDef['supports-placeholder'] && {
                         placeholder: field.placeholder[j],
-                        "aria-label": field.placeholder[j]
+                        'aria-label': field.placeholder[j]
                       }),
                       ...(elementDef['supports_type'] && { type: field.type }),
                       ...(elementDef['supports_autocomplete'] && {
@@ -332,7 +363,7 @@ function Modal({
                         className: 'modal-element'
                       }),
                       ...(ErrorId && {
-                        'aria-describedby': ErrorId 
+                        'aria-describedby': ErrorId
                       })
                     };
 
@@ -386,7 +417,9 @@ function Modal({
                             }
                           />
                         )}
-                        <span className="dyvix-error-text" id={ErrorId}>{fieldError}</span>
+                        <span className="dyvix-error-text" id={ErrorId}>
+                          {fieldError}
+                        </span>
                       </div>
                     );
                   })}
