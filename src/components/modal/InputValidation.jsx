@@ -30,6 +30,7 @@ const defaultElement = {
   type: '!/',
   placeholder: ['!/'],
   id: '!/',
+  match: '!/',
   className: '!/',
   validation: '!/',
   amount: 1
@@ -294,6 +295,22 @@ export function validateElements(elements) {
         };
       }
     }
+    if(element.match && element.match !== "!/")
+    {
+      const matchTargets = typeof element.match === 'string' ? [element.match] : element.match;
+      for(const matchId of matchTargets)
+      {
+        if (matchId === "!/") continue;
+        const exist = elements.find(e => Array.isArray(e.id) ? e.id.includes(matchId): e.id === matchId)
+        if(!exist)
+        {
+          return {
+            status: GaurdStatus.Error,
+            error: `'${matchId}' is not a recognized target for matching.`
+          };
+        }
+      }
+    }
   }
 
   const isDuplicateName = checkDuplicates(elements, 'name');
@@ -316,7 +333,9 @@ export function normalizeElements(elements) {
     name: typeof ele.name === 'string' ? [ele.name] : ele.name,
     id: typeof ele.id === 'string' ? [ele.id] : ele.id,
     validation:
-      typeof ele.validation === 'string' ? [ele.validation] : ele.validation
+      typeof ele.validation === 'string' ? [ele.validation] : ele.validation,
+    match:
+      typeof ele.match === 'string' ? [ele.match] : ele.match,
   }));
 }
 function checkDuplicates(elements, field) {

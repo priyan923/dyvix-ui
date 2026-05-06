@@ -1,4 +1,4 @@
-import { Modal, DYVIX_GLOBAL_ANIMATION,DYVIX_GLOBAL_THEME  } from 'dyvix-ui';
+import { Modal, DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
 import React from 'react';
 export function ModalTest() {
   const testData = Array.from({ length: 9 }, (_, i) => ({
@@ -10,39 +10,30 @@ export function ModalTest() {
 
   return (
     <Modal
+      title="Register"
       Id="register-modal"
       className="modalsss"
       theme={DYVIX_GLOBAL_THEME.FROST}
-      preset={'ResetPassword'}
+      //preset={'ResetPassword'}
       type="auth"
       elements={[
         {
-          type: 'text',
-          placeholder: ['First Name', 'Last Name'],
-          id: ['name'],
-          name: ['firstName', 'lastName'],
-          className: 'ex-text',
-          amount: 2
-        },
-        {
-          type: 'd-select',
-          amount: 3,
-          placeholder: ['Select Size', 'Choose Color', 'Shipping Method'],
-          name: ['Size', 'Color', 'Method'],
-          options: [
-            ['Small', 'Medium', 'Large'],
-            ['Red', 'Blue', 'Green'],
-            ['Standard', 'Express', 'Prime']
-          ]
+          type: 'password',
+          placeholder: ['New Password', 'fgfg'],
+          validation: 'password',
+          id: ['new-password', 'new-passwordx', '33'],
+          name: ['newPassword', 'test'],
+          amount: 2,
+          match: ['confirm-password', 'confirm-password']
         },
         {
           type: 'password',
-          placeholder: 'Password',
+          placeholder: 'Confirm Password',
           validation: 'password',
-          id: 'password',
-          name: 'password',
-          className: 'ex-text',
-          amount: 1
+          id: 'confirm-password',
+          name: 'confirmPassword',
+          amount: 1,
+          
         }
       ]}
       onSubmit={(data) => console.log(data)}
