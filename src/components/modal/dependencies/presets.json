@@ -74,7 +74,7 @@
     "fields": [
       {
         "type": "password",
-        "placeholder": "New Password",
+        "placeholder": "Enter New Password",
         "validation": "password",
         "id": "new-password",
         "name": "newPassword",

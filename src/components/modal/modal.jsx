@@ -94,9 +94,17 @@ function Modal({
               const matchToPlaceholder = matchToFields.placeholder[matchToIndex];
               const sourceValue = data[field.name[i]];
               const targetValue = data[matchToName];
+              const serializeLabel = (str) => {
+                if (!str) return 'Field';
+                return str
+                  .replace(/^(Enter|Type|Provide|Input|Your|Confirm)\s+/gi, '')
+                  .trim();
+              };
+              const sourceLabel = serializeLabel(field.placeholder[i]);
+              const targetLabel = serializeLabel(matchToPlaceholder);
               if (sourceValue && targetValue && sourceValue !== targetValue) {
                 newErrors[field.name[i]] =
-                  `${field.placeholder[i]} must match ${matchToPlaceholder}`;
+                  `${sourceLabel} must match ${targetLabel}`;
               }
             }
           }
