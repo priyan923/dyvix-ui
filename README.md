@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/younisdev/dyvix-ui/main/src/static/demo.gif" alt="Dyvix UI Demo" width="500" height="500" />
+  <img src="https://raw.githubusercontent.com/younisdev/dyvix-ui/main/src/static/demo.gif" alt="Dyvix UI Demo" width="350" height="300" />
 </p>
 
 # React

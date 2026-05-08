@@ -1,5 +1,6 @@
 import { EvaluateFailure, GaurdStatus } from '../DyvixGuard';
 import Version from '../../../package.json';
+import { set, get } from 'idb-keyval';
 
 export const CACHETYPE = { CSS: 'css', Default: 'default' };
 const VERSION = Version['version'];
@@ -73,9 +74,9 @@ async function cachelayerThree(
   let cssResult = null;
   let jsonResult = null;
   let keys = [key + '_L1', key + '_L2', key + '_L3'];
-
-  if (localStorage.getItem(keys[2])) {
-    const cachedData = JSON.parse(localStorage.getItem(keys[2]));
+  const cachedData = await get(keys[2]);
+  
+  if (cachedData) {
     JsonArray = cachedData.JSON;
     rawCSS = cachedData.CSS;
   } else {
@@ -91,7 +92,7 @@ async function cachelayerThree(
     ...(JsonArray !== null && { JSON: JsonArray })
   };
 
-  localStorage.setItem(keys[2], JSON.stringify(value));
+  await set(keys[2], value);
 
   if (!jsonResult) {
     return null;
