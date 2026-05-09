@@ -34,7 +34,8 @@ export default defineConfig({
         items: [
           { text: 'Introduction', link: 'guide/introduction' },
           { text: 'Quickstart', link: 'guide/quickstart' },
-          { text: 'Animations', link: 'guide/animations' }
+          { text: 'Animations', link: 'guide/animations' },
+          { text: 'Themes', link: 'guide/themes' }
         ]
       },
       {
@@ -45,7 +46,6 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Overview', link: 'components/modal/modal' },
-              { text: 'Themes', link: 'components/modal/themes' },
               { text: 'Elements', link: 'components/modal/elements' },
               { text: 'Validations', link: 'components/modal/validation' },
               { text: 'Presets', link: 'components/modal/presets' }

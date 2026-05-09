@@ -16,7 +16,7 @@ A config-driven animated button component with support for themed and default co
 - `className`
   - : `string`. Contains a custom class for your button, allowing more control for the developer.
 - `theme`
-  - : `string`. Controls the design and the feel of the button. See the [Themes list](/components/modal/themes) for a full list.
+  - : `string`. Controls the design and the feel of the button. See the [Themes list](/guide/themes) for a full list.
 - `background`
   - : `string`. Controls the button background color and feel.
 - `color`

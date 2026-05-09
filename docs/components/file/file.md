@@ -19,7 +19,7 @@ A config-driven animated File component with support for themed and default colo
 - `className`
   - : `string`. Contains a custom class for your file, allowing more control for the developer.
 - `theme`
-  - : `string`. Controls the design and the feel of the file. See the [Themes list](/components/modal/themes) for a full list.
+  - : `string`. Controls the design and the feel of the file. See the [Themes list](/guide/themes) for a full list.
 - `background`
   - : `string`. Controls the file background color and feel.
 - `color`

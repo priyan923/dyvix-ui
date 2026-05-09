@@ -2,7 +2,7 @@
 title: Modal Elements
 next:
   text: 'Modal themes'
-  link: 'components/modal/themes'
+  link: 'guide/themes'
 ---
 
 # Modal Elements

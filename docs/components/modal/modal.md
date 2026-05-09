@@ -20,7 +20,7 @@ The modal component is a core Dyvix UI component. It's a config driven, animated
 - `type`
   - : `string`. Represents the type of the modal. Defaults to `form`. Supported types are `form` and `auth`.
 - `theme`
-  - : `string`. Controls the design and the feel of the modal. See the [Themes list](/components/modal/themes) for a full list.
+  - : `string`. Controls the design and the feel of the modal. See the [Themes list](/guide/themes) for a full list.
 - `animation`
   - : `string`. Controls the entrance animation of the modal. See the [Animation List](/guide/animations) for a full list.
 - `preset`
@@ -73,8 +73,8 @@ The modal component is a core Dyvix UI component. It's a config driven, animated
 
 Dyvix constants are a built-in configuration engine designed to eliminate "magic strings" and provide a type-safe environment for dyvix users. By using these exported constants you benefit from IDE autocompletion preventing common typos that could break your UI. The modal component currently supports 5 constants groups:
 
-- `DYVIX_MODAL_THEME`
-  - : Used in the theme attribute e.g. `theme={DYVIX_MODAL_THEME.NEON}`.
+- `DYVIX_GLOBAL_THEME`
+  - : Used in the theme attribute e.g. `theme={DYVIX_GLOBAL_THEME.NEON}`.
 - `DYVIX_GLOBAL_ANIMATION`
   - : Used in the animation attribute e.g. `animation={DYVIX_GLOBAL_ANIMATION.AURORA}`.
 - `DYVIX_MODAL_TYPE`
@@ -140,7 +140,7 @@ function ModalExample() {
 ```jsx
 import {
   Modal,
-  DYVIX_MODAL_THEME,
+  DYVIX_GLOBAL_THEME,
   DYVIX_MODAL_VALIDATION_PRESET,
   DYVIX_GLOBAL_ANIMATION,
   DYVIX_MODAL_ELEMENT,
@@ -153,7 +153,7 @@ function ModalExample() {
       title="Register"
       Id="register-modal"
       className="modal"
-      theme={DYVIX_MODAL_THEME.AURORA}
+      theme={DYVIX_GLOBAL_THEME.AURORA}
       animation={DYVIX_GLOBAL_ANIMATION.GLITCH}
       type={DYVIX_MODAL_TYPE.AUTH}
       elements={[
