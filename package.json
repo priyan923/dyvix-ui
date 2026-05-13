@@ -42,7 +42,7 @@
     "clean": "rimraf node_modules/.vite docs/.vitepress/cache",
     "docs:dev:clean": "npm run clean && vitepress dev docs",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "npm run clean && vitepress build docs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "dyvix:build": "node dev-engine/scripts/generate-constants.js"
   },
