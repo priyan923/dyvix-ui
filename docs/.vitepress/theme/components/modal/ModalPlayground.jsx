@@ -5,7 +5,8 @@ import {
   DYVIX_GLOBAL_THEME,
   DYVIX_GLOBAL_ANIMATION,
   DYVIX_MODAL_TYPE,
-  DYVIX_MODAL_VALIDATION_PRESET
+  DYVIX_MODAL_VALIDATION_PRESET,
+  DYVIX_MODAL_ELEMENT
 } from 'dyvix-ui';
 
 export default function ModalPlayground() {
@@ -45,14 +46,42 @@ export default function ModalPlayground() {
       type: 'config',
       'config-title': 'Edit config',
       'config-rules': [
-        { rule: 'name', formats: ['string', 'multiple', 'unique'], max_length: 3, required: true },
-        { rule: 'type', formats: ['string'], options: DYVIX_MODAL_TYPE, required: true },
-        { rule: 'amount', formats: ['number'], max_val: 3, required: true },
-        { rule: 'placeholder', formats: ['string', 'multiple', 'unique'], max_length: 3 },
-        { rule: 'id', formats: ['string', 'multiple', 'unique'], max_length: 3 },
-        { rule: 'options', formats: ['array'], max_length: 3 },
-        { rule: 'validation', formats: ['string', 'multiple'], max_length: 3, options: DYVIX_MODAL_VALIDATION_PRESET },
-        { rule: 'match', formats: ['string'] },
+        {
+          rule: 'amount',
+          formats: ['number'],
+          max_val: 3,
+          required: true,
+          amount_field: true
+        },
+        {
+          rule: 'name',
+          formats: ['string', 'multiple', 'unique'],
+          max_length: 3,
+          required: true
+        },
+        {
+          rule: 'type',
+          formats: ['string'],
+          options: DYVIX_MODAL_ELEMENT,
+          required: true
+        },
+        {
+          rule: 'placeholder',
+          formats: ['string', 'multiple', 'unique'],
+          max_length: 3
+        },
+        {
+          rule: 'id',
+          formats: ['string', 'multiple', 'unique'],
+          max_length: 3
+        },
+        {
+          rule: 'validation',
+          formats: ['string', 'multiple'],
+          max_length: 3,
+          options: DYVIX_MODAL_VALIDATION_PRESET
+        },
+        { rule: 'match', formats: ['string', 'multiple'] }
       ],
       current: [
         {
@@ -61,11 +90,19 @@ export default function ModalPlayground() {
           id: 'name',
           name: ['firstName', 'lastName'],
           className: 'ex-text',
-          amount: 2,
+          amount: 2
         },
+        {
+          type: 'text',
+          placeholder: ['First Namex', 'Last Namex'],
+          id: 'names',
+          name: ['firstNamez', 'lastNamez'],
+          className: 'ex-text2',
+          amount: 2
+        }
       ],
-      format: 'object',
-    },
+      format: 'object'
+    }
   ]);
 
   const theme = config.find((e) => e['utility'] === 'theme').current;
