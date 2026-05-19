@@ -6,7 +6,8 @@ import {
   DYVIX_GLOBAL_ANIMATION,
   DYVIX_MODAL_TYPE,
   DYVIX_MODAL_VALIDATION_PRESET,
-  DYVIX_MODAL_ELEMENT
+  DYVIX_MODAL_ELEMENT,
+  DYVIX_MODAL_PRESET
 } from 'dyvix-ui';
 
 export default function ModalPlayground() {
@@ -40,6 +41,14 @@ export default function ModalPlayground() {
       current: DYVIX_MODAL_TYPE.AUTH,
       format: 'string',
       allowNull: false
+    },
+    {
+      utility: 'preset',
+      type: 'select',
+      options: DYVIX_MODAL_PRESET,
+      current: '!/',
+      format: 'string',
+      allowNull: true
     },
     {
       utility: 'elements',
@@ -110,13 +119,16 @@ export default function ModalPlayground() {
   const title = config.find((e) => e['utility'] === 'title').current;
   const type = config.find((e) => e['utility'] === 'type').current;
   const elements = config.find((e) => e['utility'] === 'elements').current;
+  const preset = config.find((e) => e['utility'] === 'preset').current;
+
   const probs = {
     ...(theme && { theme: theme }),
     ...(animation && { animation: animation }),
     ...(title && { title: title }),
     ...(type && { type: type }),
-    ...(elements && { elements: elements })
-  };
+    ...(elements && { elements: elements }),
+...(preset && (!elements || elements.length === 0) && { preset: preset })  };
+
   return (
     <Wrapper
       componentConfig={config}

@@ -129,7 +129,7 @@ export default function Wrapper({
                     )
                   }
                 >
-                  {ele.allowNull && <option value={null}>None</option>}
+                  {ele.allowNull && <option value={"!/"}>None</option>}
                   {Object.entries(ele.options).map(([key, value]) => (
                     <option key={key} value={value}>
                       {key}
@@ -380,9 +380,7 @@ export default function Wrapper({
             if (currentInput) {
               return (
                 <div key={ele.utility} className="dyvix-hud-item">
-                  {ele.type !== 'config' ? (
-                    <label htmlFor={`${ele.utility}-${i}`}>{ele.utility}</label>
-                  ) : null}
+                  <label htmlFor={`${ele.utility}-${i}`}>{ele.utility}</label>
                   {React.cloneElement(currentInput)}
                 </div>
               );
