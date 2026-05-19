@@ -4,13 +4,31 @@ import './dependencies/style/style.css';
 import React from 'react';
 import { Validateinput } from './validation';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.type] - Input type, defaults to 'text'
+ * @param {string} [props.placeholder] - Input placeholder text
+ * @param {string} [props.autoComplete] - Input autoComplete attribute
+ * @param {string} [props.background] - Input background color
+ * @param {string} [props.color] - Input color
+ * @param {string} [props.animation] - Animation name, defaults to fade
+ * @param {string} [props.className] - Input className
+ * @param {string} [props.name] - Input name
+ * @param {string} [props.id] - Input id
+ * @param {boolean} [props.disabled] - Disables the input when true
+ * @param {string} [props['aria-label']] - Accessible label for the input
+ * @param {Function} [props.onFocus] - Focus event callback
+ * @param {Function} [props.onBlur] - Blur event callback
+ * @param {Function} [props.onChange] - Change event callback, receives the event object
+ * @param {Object} [props.style] - Inline style overrides
+ */
 function DyvixInput({
   type = 'text',
   placeholder,
   autoComplete,
   background,
   color,
-  animation = '!/',
+  animation = 'fade',
   className = '',
   name,
   id,
@@ -38,21 +56,21 @@ function DyvixInput({
     }
 
     GetFields();
-
   }, [type, animation]);
 
   const currentAnimation = animation ? configs['animation'] : null;
   const currentType = type ? configs['type'] : null;
-  const inputClasses = `dyvix-input ${currentType?.class ?? ''} ${className}`.trim();
+  const inputClasses =
+    `dyvix-input ${currentType?.class ?? ''} ${className}`.trim();
   const props = {
     className: inputClasses,
     type: currentType?.type,
-    ...(placeholder && {placeholder: placeholder}),
-    ...(name && {name: name}),
-    ...(id && {id: id}),
-    ...(autoComplete && {autoComplete: autoComplete}),
-    ...(disabled === true && {disabled: true}),
-    ... (ariaLabel && {'aria-label': ariaLabel}),
+    ...(placeholder && { placeholder: placeholder }),
+    ...(name && { name: name }),
+    ...(id && { id: id }),
+    ...(autoComplete && { autoComplete: autoComplete }),
+    ...(disabled === true && { disabled: true }),
+    ...(ariaLabel && { 'aria-label': ariaLabel }),
     style: {
       ...(background && { background: background }),
       ...(color && { color: color }),
