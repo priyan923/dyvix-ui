@@ -103,9 +103,9 @@ export default function Wrapper({
       if (formattedVal.includes('!/')) continue;
       curr += ele.current ? `${ele.utility}=${formattedVal}\n` : '';
     }
-    curr += '>';
+
     const children = componentConfig.find((ele) => ele.utility === 'children');
-    curr += children?.current ? `\n${children.current}\n</${tag}>` : '';
+    curr += children?.current ? `>\n${children.current}\n</${tag}>` : ' />';
     setSnippet(curr);
   }, [componentConfig]);
   return (
