@@ -49,3 +49,6 @@ function SelectExample() {
   );
 }
 ```
+## Try it
+
+<SelectPlayground />
