@@ -23,5 +23,10 @@
     "theme": "Blade",
     "class": "dyvix-input-blade",
     "default-animation": "zoom"
+  },
+  {
+    "theme": "Neon",
+    "class": "dyvix-input-neon",
+    "default-animation": "pulse"
   }
 ]
