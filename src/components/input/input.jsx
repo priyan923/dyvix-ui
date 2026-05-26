@@ -21,6 +21,8 @@ import Version from '../../../package.json';
  * @param {Function} [props.onFocus] - Focus event callback
  * @param {Function} [props.onBlur] - Blur event callback
  * @param {Function} [props.onChange] - Change event callback, receives the event object
+ * @param {Function} [props.onKeyDown] - KeyDown event callback, receives the event object
+ * @param {Function} [props.onKeyUp] - KeyUp event callback, receives the event object
  * @param {Object} [props.style] - Inline style overrides
  */
 function DyvixInput({
@@ -39,6 +41,8 @@ function DyvixInput({
   onFocus,
   onBlur,
   onChange,
+  onKeyDown,
+  onKeyUp,
   style,
   ...rest
 }) {
@@ -102,6 +106,16 @@ function DyvixInput({
       onChange(e);
     }
   }
+  function handleKeyDown(e) {
+    if (typeof onKeyDown === 'function') {
+      onKeyDown(e);
+    }
+  }
+  function handleKeyUp(e) {
+    if (typeof onKeyUp === 'function') {
+      onKeyUp(e);
+    }
+  }
 
   useGSAP(() => {
     if (!inputRef.current || !currentAnimation) return;
@@ -120,6 +134,8 @@ function DyvixInput({
         onFocus={(e) => handleFocus(e)}
         onBlur={(e) => handleBlur(e)}
         onChange={(e) => handleChange(e)}
+        onKeyDown={(e) => handleKeyDown(e)}
+        onKeyUp={(e) => handleKeyUp(e)}
       ></input>
     </div>
   );
