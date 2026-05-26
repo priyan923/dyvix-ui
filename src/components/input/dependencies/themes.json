@@ -18,5 +18,25 @@
     "theme": "Frost",
     "class": "dyvix-input-frost",
     "default-animation": "unfold"
+  },
+  {
+    "theme": "Blade",
+    "class": "dyvix-input-blade",
+    "default-animation": "zoom"
+  },
+  {
+    "theme": "Neon",
+    "class": "dyvix-input-neon",
+    "default-animation": "pulse"
+  },
+  {
+    "theme": "Aurora",
+    "class": "dyvix-input-aurora",
+    "default-animation": "aurora"
+  },
+  {
+    "theme": "Sunset",
+    "class": "dyvix-input-sunset",
+    "default-animation": "drop"
   }
 ]

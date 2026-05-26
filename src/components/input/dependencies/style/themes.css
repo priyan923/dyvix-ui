@@ -127,3 +127,186 @@
   -webkit-box-shadow: -6px 2px 51px -23px rgba(213, 255, 248, 1) inset;
   -moz-box-shadow: -6px 2px 51px -23px rgba(213, 255, 248, 1) inset;
 }
+.dyvix-input-blade {
+  font-family: 'Geist';
+  background-color: #0a0a0a;
+  border-radius: 0px;
+  color: #ffffff;
+  border-left: 3px solid #e2e8f0;
+  border-top: 3px solid #e2e8f0;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.05);
+  -moz-box-shadow: -4px -4px 20px rgba(255, 255, 255, 0.05);
+  transition:
+    border-left 0.15s ease-in-out,
+    border-top 0.15s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    -webkit-box-shadow 0.2s ease-in-out,
+    -moz-box-shadow 0.2s ease-in-out;
+}
+.dyvix-input-blade:hover {
+  border: none;
+  border-left: 4px solid #ffffff;
+  border-top: 4px solid #ffffff; 
+  box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
+}
+.dyvix-input-blade:focus {
+  border: none;
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  box-shadow: -3px -3px 15px rgba(255, 255, 255, 0.15);
+}
+.dyvix-input-blade::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.dyvix-input-neon {
+  background: #4deeea;
+  background: radial-gradient(
+    circle,
+    rgba(77, 238, 234, 1) 0%,
+    rgba(112, 186, 239, 1) 43%,
+    rgba(240, 0, 255, 1) 100%
+  );
+
+  box-shadow: 0px 0px 20px 2px rgba(252, 46, 255, 0.4);
+  border: 0 solid transparent; 
+  color: white;
+  font-weight: bold;
+  border-radius: 4rem;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-radius 0.2s ease,
+    box-shadow 0.3s ease,
+    background-position 0.4s ease,
+    color 0.2s ease;
+}
+.dyvix-input-neon:hover {
+  border: none;
+  border-radius: 2rem;
+  transform: scale(1.01);
+  background: #1c4241;
+  background: radial-gradient(
+    circle,
+    rgba(112, 186, 239, 1) 0%,
+    rgba(77, 238, 234, 1) 43%,
+    rgba(240, 0, 255, 1) 90%
+  );
+  box-shadow: 0px 0px 56px 4px rgba(252, 61, 255, 1);
+}
+.dyvix-input-neon::placeholder {
+  color: whitesmoke;
+}
+.dyvix-input-neon:focus {
+  border: none;
+  transform: scale(1.015);
+  border-radius: 2rem;
+  color: #050e14;
+  box-shadow: 
+    0px 0px 50px 6px rgba(252, 61, 255, 1),
+    inset 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+.dyvix-input-aurora {
+  background: #14e81e;
+  background: linear-gradient(
+    99deg,
+    rgba(20, 232, 30, 1) 0%,
+    rgba(0, 234, 141, 1) 21%,
+    rgba(1, 177, 179, 1) 46%,
+    rgba(1, 126, 213, 1) 67%,
+    rgba(181, 61, 255, 1) 100%
+  );
+  border-radius: 3rem;
+  border: 1px solid rgba(165, 164, 164, 0.1);
+  box-shadow: 0px 0px 75px 0px rgba(1, 176, 179, 0.9);
+  transition:
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out,
+    border-radius 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    background 0.3s ease-in-out;
+}
+.dyvix-input-aurora:hover {
+  border: 1px solid transparent;
+  border-radius: 5rem;
+  background: #14e81e;
+  background: linear-gradient(
+    99deg,
+    rgb(93, 189, 98) 0%,
+    rgba(0, 234, 141, 1) 21%,
+    rgba(1, 177, 179, 1) 46%,
+    rgb(100, 187, 250) 67%,
+    rgba(181, 61, 255, 1) 100%
+  );
+  transform: scale(1.01);
+  box-shadow: 0px 0px 50px 10px rgba(1, 176, 179, 0.8);
+}
+.dyvix-input-aurora::placeholder {
+  color: white;
+}
+.dyvix-input-aurora:focus {
+  transform: scale(1.015);
+  border-radius: 5rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 60px 12px rgba(1, 176, 179, 0.95);
+}
+.dyvix-input-sunset {
+  background: #1a0a00;
+  background: linear-gradient(
+    140deg,
+    #1a0a00 0%,
+    #3d1a00 40%,
+    #6b2d00 70%,
+    #8b3a00 100%
+  );
+  border-bottom: 5px solid #a84600;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 198, 15, 0.1);
+  box-shadow: 0px 15px 38px -10px rgba(255, 198, 15, 0.88);
+  -webkit-box-shadow: 0px 15px 38px -10px rgba(255, 198, 15, 0.88);
+  -moz-box-shadow: 0px 15px 38px -10px rgba(255, 198, 15, 0.88);
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease-in-out,
+    -webkit-box-shadow 0.3s ease-in-out,
+    -moz-box-shadow 0.3s ease-in-out,
+    border-radius 0.2s ease-in-out;
+}
+.dyvix-input-sunset:hover {
+  border: none;
+  background: #1a0a00;
+  background: linear-gradient(
+    140deg,
+    #1a0a00 0%,
+    #3d1a00 40%,
+    #6b2d00 70%,
+    #af4901 100%
+  );
+  transform: translateY(1.5px);
+  box-shadow: 0 20px 50px -10px rgba(255, 198, 15, 0.6);
+  -webkit-box-shadow: 0 20px 50px -10px rgba(255, 198, 15, 0.6);
+  -moz-box-shadow: 0 20px 50px -10px rgba(255, 198, 15, 0.6);
+  border-radius: 20px;
+}
+.dyvix-input-sunset:focus {
+  transform: translateY(1px); 
+  border-left: 1px solid rgba(255, 198, 15, 0.4);
+  border-top: 1px solid rgba(255, 198, 15, 0.4);
+  border-right: 1px solid rgba(255, 198, 15, 0.4);
+  border-bottom: 2px solid #ffbc0f;
+  box-shadow: 
+    0px 8px 30px -5px rgba(255, 198, 15, 0.7),
+    inset 0px 0px 12px rgba(255, 115, 0, 0.3);
+  -webkit-box-shadow: 
+    0px 8px 30px -5px rgba(255, 198, 15, 0.7),
+    inset 0px 0px 12px rgba(255, 115, 0, 0.3);
+  -moz-box-shadow: 
+    0px 8px 30px -5px rgba(255, 198, 15, 0.7),
+    inset 0px 0px 12px rgba(255, 115, 0, 0.3);
+}
+.dyvix-input-sunset::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
