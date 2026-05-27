@@ -85,5 +85,21 @@
     "is_custom": false,
     "requires-options": false,
     "r-variant": true
+  },
+  {
+    "element": "file",
+    "tag": "DyvixFile",
+    "default-class": "modal-file",
+    "aria": {
+      "role": "button",
+      "aria-label": "File upload"
+    },
+    "supports-placeholder": false,
+    "supports-label": true,
+    "supports_type": false,
+    "supports_autocomplete": false,
+    "is_custom": true,
+    "requires-options": false,
+    "r-variant": true
   }
 ]
