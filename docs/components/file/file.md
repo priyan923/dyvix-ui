@@ -51,3 +51,7 @@ function FileExample() {
   );
 }
 ```
+
+## Try it
+
+<FilePlayground />
