@@ -50,7 +50,7 @@ function Modal({
   type = `form`,
   elements,
   preset = '!/',
-  theme = 'Singularity',
+  theme = '!/',
   animation = '!/',
   Id,
   className,
@@ -192,6 +192,9 @@ function Modal({
   };
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
+
+    theme =
+      theme !== '!/' ? theme : currentPreset['default-theme'] || 'Singularity';
   }
   React.useEffect(() => {
     async function GetFields() {
