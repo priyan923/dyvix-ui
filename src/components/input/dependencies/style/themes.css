@@ -310,6 +310,29 @@
 .dyvix-input-sunset::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
+.dyvix-input-forest {
+  background: #1f3b2c;
+  background: radial-gradient(
+    circle,
+    rgba(31, 59, 44, 1) 14%,
+    rgba(31, 59, 44, 1) 24%,
+    rgba(75, 58, 42, 1) 71%
+  );
+  border: 3px double #86a86b;
+  border-radius: 5rem;
+  box-shadow: inset 0px 0px 30px 10px rgba(163, 236, 101, 0.3);
+  -webkit-box-shadow: inset 0px 0px 30px 10px rgba(163, 236, 101, 0.3);
+  -moz-box-shadow: inset 0px 0px 30px 10px rgba(163, 236, 101, 0.3);
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease;
+}
+.dyvix-input-forest:hover {
+  transform: skewX(-5deg) scale(1.02);
+  box-shadow: inset 0px 0px 50px 15px rgba(163, 236, 101, 0.5);
+  -webkit-box-shadow: inset 0px 0px 50px 15px rgba(163, 236, 101, 0.5);
+  -moz-box-shadow: inset 0px 0px 50px 15px rgba(163, 236, 101, 0.5);
+}
 .dyvix-input-midnight {
   background: radial-gradient(circle at center, #00024d 0%, #000000 100%);
   border: 1px solid rgba(112, 168, 247, 0.3);
