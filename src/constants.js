@@ -12,7 +12,8 @@ export const DYVIX_GLOBAL_THEME =
   "SUNSET": "Sunset",
   "OCEAN": "Ocean",
   "FOREST": "Forest",
-  "MIDNIGHT": "Midnight"
+  "MIDNIGHT": "Midnight",
+  "CRIMSON": "Crimson"
 }
 export const DYVIX_MODAL_TYPE = 
  {

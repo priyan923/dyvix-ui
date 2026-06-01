@@ -160,6 +160,21 @@ function Modal({
   const currentTheme = configs['theme'];
   const currentAnimation = configs['animation'];
   const currentPreset = configs['preset'];
+  const themeTextStyle = {
+    color: currentTheme?.['text-color']
+  };
+
+  const themeInputStyle = {
+    ...(currentTheme?.['input-background'] && {
+      background: currentTheme['input-background']
+    }),
+    ...(currentTheme?.['input-color'] && {
+      color: currentTheme['input-color']
+    }),
+    ...(currentTheme?.['input-border'] && {
+      border: currentTheme['input-border']
+    })
+  };
   const serilaizedclassName =
     className + ` ${currentTheme?.class}` + ` ${currentType.class}`;
   // Dynamicily calculate modal sizing and position
@@ -292,7 +307,9 @@ function Modal({
                 ✕
               </button>
             )}
-            <h3 id="modal-header">{title}</h3>
+            <h3 id="modal-header" style={themeTextStyle}>
+              {title}
+            </h3>
             {fields?.map((field, i) => {
               const elementDef =
                 elementsData.find((e) => e.element === field.type) ||
@@ -360,7 +377,8 @@ function Modal({
                       name: name,
                       style: {
                         fontSize: fontSize,
-                        fontWeight: fontWeight
+                        fontWeight: fontWeight,
+                        ...themeInputStyle
                       },
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
@@ -386,7 +404,6 @@ function Modal({
                       }),
                       ...(elementDef.tag !== 'DyvixFile' && {
                         onChange: (e) => {
-                          console.log(Tag)
                           const value = elementDef['is_custom']
                             ? e
                             : field.type === 'checkbox'
@@ -421,14 +438,22 @@ function Modal({
                             ))}
                           </Tag>
                         ) : field.type === 'checkbox' ? (
-                          <label key={j} className="modal-checkbox-label">
+                          <label
+                            key={j}
+                            className="modal-checkbox-label"
+                            style={themeTextStyle}
+                          >
                             <Tag {...Tagprobs} />
                             {field.placeholder?.[j]}
                           </label>
                         ) : (
                           <Tag key={j} {...Tagprobs} />
                         )}
-                        <span className="dyvix-error-text" id={ErrorId}>
+                        <span
+                          className="dyvix-error-text"
+                          id={ErrorId}
+                          style={themeTextStyle}
+                        >
                           {fieldError}
                         </span>
                       </div>

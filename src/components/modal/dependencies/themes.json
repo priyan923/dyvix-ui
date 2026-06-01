@@ -69,6 +69,10 @@
     "theme": "Crimson",
     "class": "dyvix-modal-crimson",
     "default-animation": "glitch",
-    "radiused": true
+    "radiused": true,
+    "text-color": "#ffd6d6",
+    "input-background": "#2a0000",
+    "input-color": "#ffffff",
+    "input-border": "1px solid #ff4d4d"
   }
 ]
