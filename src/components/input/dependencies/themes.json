@@ -42,7 +42,7 @@
   {
     "theme": "Ocean",
     "class": "dyvix-input-ocean",
-    "default-animation": "wave"
+    "default-animation": "flip"
   },
   {
     "theme": "Forest",
