@@ -198,11 +198,10 @@ function Modal({
         : currentPreset['default-animation'] || 'fade';
     theme =
       theme !== '!/' ? theme : currentPreset['default-theme'] || 'Singularity';
-  }
-  else {
+  } else {
     theme = theme !== '!/' ? theme : 'Singularity';
   }
-  
+
   React.useEffect(() => {
     async function GetFields() {
       const data = await SerializeData(
@@ -396,7 +395,7 @@ function Modal({
                       }),
                       ...(elementDef.tag !== 'DyvixFile' && {
                         onChange: (e) => {
-                          console.log(Tag)
+                          console.log(Tag);
                           const value = elementDef['is_custom']
                             ? e
                             : field.type === 'checkbox'

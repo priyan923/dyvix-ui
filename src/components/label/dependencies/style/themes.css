@@ -1,0 +1,16 @@
+.dyvix-label-lens {
+  font-family: 'Geist';
+  color: #b903e2;
+  text-shadow:
+    0 0 8px #b903e2,
+    0 0 20px rgba(185, 3, 226, 0.4);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out;
+}
+.dyvix-label-lens:hover {
+  color: white;
+  text-shadow:
+    0 0 12px #b903e2,
+    0 0 30px rgba(185, 3, 226, 0.6);
+}

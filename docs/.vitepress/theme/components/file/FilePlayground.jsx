@@ -9,7 +9,7 @@ export default function FilePlayground() {
       utility: 'label',
       type: 'text',
       current: 'Upload File',
-      format: 'string'    
+      format: 'string'
     },
     {
       utility: 'animation',
@@ -64,24 +64,21 @@ export default function FilePlayground() {
   const accept = config.find((e) => e.utility === 'accept').current;
 
   const props = {
-  ...(label && { label: label }),
-  ...(animation && { animation: animation }),
-  ...(theme && { theme: theme }),
-  ...(background && { background: background }),
-  ...(color && { color: color }),
-  ...(multiple && { multiple: multiple }),
-  ...(accept && { accept: accept })
-};
+    ...(label && { label: label }),
+    ...(animation && { animation: animation }),
+    ...(theme && { theme: theme }),
+    ...(background && { background: background }),
+    ...(color && { color: color }),
+    ...(multiple && { multiple: multiple }),
+    ...(accept && { accept: accept })
+  };
   return (
     <Wrapper
       componentConfig={config}
       componentCallback={setConfig}
       tag={'DyvixFile'}
     >
-      <DyvixFile
-        onUpload={(data) => console.log(data)}
-        {...props}
-      />
+      <DyvixFile onUpload={(data) => console.log(data)} {...props} />
     </Wrapper>
   );
 }
