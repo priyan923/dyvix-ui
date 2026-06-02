@@ -53,5 +53,10 @@
     "theme": "Midnight",
     "class": "dyvix-file-midnight",
     "default-animation": "drift"
+  },
+  {
+    "theme": "Crimson",
+    "class": "dyvix-file-crimson",
+    "default-animation": "glitch"
   }
 ]

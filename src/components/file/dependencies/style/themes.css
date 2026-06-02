@@ -352,3 +352,29 @@
   color: rgba(137, 182, 246, 0.9);
   transition: color 0.3s ease-in-out;
 }
+.dyvix-file-crimson {
+  background: #1a0000;
+  border: 1px solid #ff4d4d;
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(255, 77, 77, 0.25);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.dyvix-file-crimson p {
+  color: #ffd6d6;
+}
+
+.dyvix-file-crimson:hover {
+  background: #2a0000;
+  border-color: #ff6666;
+  transform: scale(1.01);
+  box-shadow: 0 0 26px rgba(255, 77, 77, 0.4);
+}
+
+.dyvix-file-crimson:hover p {
+  color: #ffffff;
+}
