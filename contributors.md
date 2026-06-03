@@ -21,3 +21,4 @@ Thanks for everyone who has contributed to Dyvix UI!
 - [@nanookclaw](https://github.com/nanookclaw)
 - [@rishipandey2](https://github.com/rishipandey2)
 - [@PrettyFox0](https://github.com/PrettyFox0)
+- [@ded-furby](https://github.com/ded-furby)
