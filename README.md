@@ -44,7 +44,7 @@ function ModalExample()
           type="form"
           animation="bubble" // bubble | fade | zoom | unfold | glitch
           Id="register-modal"
-          Class="modal"
+          className="modal"
           theme='Singularity' // Singularity | Industrial | Ember | Frost | Blade
           elements={[
             { type: "text", placeholder: ["First Name", "Last Name"], id: "name", name: ["firstName", "lastName"], amount: 2 },
