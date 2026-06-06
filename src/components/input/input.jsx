@@ -13,6 +13,7 @@ import Version from '../../../package.json';
  * @param {string} [props.background] - Input background color
  * @param {string} [props.color] - Input color
  * @param {string} [props.animation] - Animation name, defaults to fade
+ * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight')} props.theme - Input theme
  * @param {string} [props.className] - Input className
  * @param {string} [props.name] - Input name
  * @param {string} [props.id] - Input id
