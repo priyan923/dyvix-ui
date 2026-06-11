@@ -1,0 +1,20 @@
+.dyvix-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: #050505;
+  border: 1px solid #151515;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+.dyvix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: transparent;
+}
