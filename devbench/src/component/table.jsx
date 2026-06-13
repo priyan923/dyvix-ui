@@ -17,9 +17,15 @@ export function TableTest() {
           { key: 'type', label: 'Type' },
           { key: 'hp', label: 'HP' },
           { key: 'region', label: 'Region' },
-        ]}>
-        
-      </DyvixTable>
+        ]}
+        data={[
+          { id: 1, name: 'Lion', type: 'Wild', hp: 85, region: 'Afr' },
+          { id: 2, name: 'Wolf', type: 'Wild', hp: 60, region: 'Eur' },
+          { id: 3, name: 'Deer', type: 'Wild', hp: 45, region: 'Asia' },
+          { id: 4, name: 'Hawk', type: 'Bird', hp: 30, region: 'Amr' },
+          { id: 5, name: 'Bear', type: 'Wild', hp: 90, region: 'Amr' },
+        ]}
+      />
     </>
   );
 }
