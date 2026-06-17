@@ -7,6 +7,10 @@ import { ValidatAndLoadJSON } from '../../utils/Smart Json Caching/SJCManager';
 
 const component = 'Table';
 const CacheMapping = {
+  theme: {
+    jsonpath: '../../components/table/dependencies/themes.json',
+    csspath: '../../components/table/dependencies/style/themes.css'
+  },
   animation: {
     jsonpath: '../../components/animations.json',
     csspath: null
@@ -23,7 +27,21 @@ export async function ValidateTable(
   instance
 ) {
   let normalizedAnimation = animation?.trim().toLowerCase();
+  const normalizedTheme =
+    theme?.trim().charAt(0).toUpperCase() + theme.trim().slice(1);
+  
+  const isTheme = await ValidatAndLoadJSON(
+    CacheMapping,
+    normalizedTheme,
+    callback,
+    'theme',
+    component,
+    instance
+  );
 
+  if (normalizedAnimation === '!/' && isTheme?.config?.theme) {
+    normalizedAnimation = isTheme?.config?.theme['default-animation'];
+  }
   const isAnimation = await ValidatAndLoadJSON(
     CacheMapping,
     normalizedAnimation,
@@ -31,6 +49,7 @@ export async function ValidateTable(
     'animation',
     component
   );
+  
   if (!isAnimation.status && !allowsNull(normalizedAnimation)) {
     return {
       status: GuardStatus.Error,

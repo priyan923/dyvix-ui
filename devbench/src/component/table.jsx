@@ -10,10 +10,9 @@ import { DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
 export function TableTest() {
   return (
     <>
-      <DyvixTable
-        background={"green"}
-        color={"black"}
+       <DyvixTable
         animation={DYVIX_GLOBAL_ANIMATION.DRIFT}
+        theme={DYVIX_GLOBAL_THEME.SINGULARITY}
         columns={[
           { key: 'id', label: 'ID' },
           { key: 'name', label: 'Name' },

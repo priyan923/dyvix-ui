@@ -1,12 +1,12 @@
 .dyvix-table-wrapper {
   width: 95%;
   margin: 0.3rem auto;
-  overflow-x: auto;
   border-radius: 25px;
 }
 .dyvix-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   text-align: left;
   font-family:
     'Geist',
@@ -48,4 +48,21 @@ table[style*="color"] td {
 }
 .dyvix-table tbody tr:hover {
   background: rgba(255, 255, 255, 0.03);
+}
+.dyvix-table thead tr:first-child th:first-child {
+  border-top-left-radius: 21px;
+}
+.dyvix-table thead tr:first-child th:last-child {
+  border-top-right-radius: 21px;
+}
+.dyvix-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 21px;
+}
+.dyvix-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 21px;
+}
+@media (max-width: 640px) {
+  .dyvix-table-wrapper {
+    overflow-x: auto;
+  }
 }

@@ -9,11 +9,13 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ValidateTable } from './validation';
 import { GuardStatus, EvaluateFailure } from '../../utils/DyvixGuard';
+import Version from '../../../package.json';
 
 function DyvixTable({
   children,
   className = '',
   animation = 'fade',
+  theme = '!/',
   background,
   color,
   columns,
@@ -21,10 +23,14 @@ function DyvixTable({
   style,
   ...rest
 }) {
-  const tableClasses = `dyvix-table ${className}`.trim();
   const instanceId = React.useId();
   const [configs, SetConfig] = React.useState({});
-  const tableRef = React.useRef();
+  const tableRef = React.useRef();  
+  const [isValid, SetIsvalid] = React.useState(false);
+  const currentAnimation = animation ? configs['animation'] : null;
+  const currentTheme = theme !== "!/" ? configs['theme'] : null;
+  const tableClasses = `dyvix-table  ${currentTheme?.class ?? ''} ${className}`.trim();
+  
   const props = {
     className: tableClasses,
     style: {
@@ -33,9 +39,6 @@ function DyvixTable({
       ...style
     }
   };
-  const [isValid, SetIsvalid] = React.useState(false);
-
-  const currentAnimation = animation ? configs['animation'] : null;
 
   const ConstructTable = () => {
     const bodyRows = data.map((row) => columns.map((col) => row[col.key]));
@@ -71,7 +74,7 @@ function DyvixTable({
     async function validate() {
       const validator = await ValidateTable(
         animation,
-        '',
+        theme,
         children,
         columns,
         data,
@@ -88,6 +91,11 @@ function DyvixTable({
     }
 
     validate();
+    return () => {
+      const key = `DYVIX_${Version['version']}_Table_theme_${instanceId}`;
+      const ele = document.getElementById(key);
+      if (ele) ele.remove();
+    };
   }, [animation, columns, data]);
   useGSAP(() => {
     if (!tableRef.current || !currentAnimation) return;
