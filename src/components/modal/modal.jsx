@@ -392,6 +392,7 @@ function Modal({
                       },
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
+                      ...(elementDef['is_custom'] && {animation: null}),
                       ...(elementDef['supports-placeholder'] && {
                         placeholder: field.placeholder[j],
                         'aria-label': field.placeholder[j]
@@ -472,6 +473,7 @@ function Modal({
                 className="modal-btn"
                 onClick={handleSubmit}
                 theme={theme.toLowerCase()}
+                animation={null}
               >
                 {currentType.submitLabel}
               </DyvixButton>
