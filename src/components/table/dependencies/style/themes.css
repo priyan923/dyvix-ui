@@ -23,7 +23,7 @@
 .dyvix-table-crimson {
   border-radius: 1rem;
   font-family: 'Geist';
-  border: 4px solid #ff4d4d;
+  border: 2px solid #ff4d4d;
   color: #ffd6d6;
   background-color: #1a0000;
   background: radial-gradient(circle, #1a0000 0%, #0d0000 100%);
@@ -35,8 +35,7 @@
     background ease-in-out 0.2s;
 }
 .dyvix-table-crimson:hover {
-  border: 4px solid #ff6666;
   background: radial-gradient(circle, #2a0000 0%, #0d0000 120%);
   box-shadow: 0 0 50px rgba(255, 77, 77, 0.45);
-  transform: scale(1.02);
+  transform: scale(1.009);
 }
