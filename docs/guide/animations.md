@@ -24,3 +24,4 @@ Dyvix provides a wide range of smooth animations. You can trigger these by passi
 - `DYVIX_GLOBAL_ANIMATION.FLIP`: `'flip'`
 - `DYVIX_GLOBAL_ANIMATION.GLIDE`: `'glide'`
 - `DYVIX_GLOBAL_ANIMATION.DRIFT`: `'drift'`
+- `DYVIX_GLOBAL_ANIMATION.FLOAT`: `'float'`
