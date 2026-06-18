@@ -1,7 +1,7 @@
 [
   {
     "element": "text",
-    "tag": "input",
+    "tag": "DyvixInput",
     "tag-type": "text",
     "default-class": "modal-text",
     "aria": {
@@ -20,7 +20,7 @@
     "supports-placeholder": true,
     "supports_type": true,
     "supports_autocomplete": true,
-    "is_custom": false,
+    "is_custom": true,
     "requires-options": false,
     "r-variant": true
   },
@@ -83,21 +83,6 @@
     "supports_type": true,
     "supports_autocomplete": false,
     "is_custom": false,
-    "requires-options": false,
-    "r-variant": true
-  },
-  {
-    "element": "input",
-    "tag": "DyvixInput",
-    "default-class": "modal-input",
-    "aria": {
-      "role": "textbox",
-      "aria-label": ""
-    },
-    "supports-placeholder": true,
-    "supports_type": true,
-    "supports_autocomplete": true,
-    "is_custom": true,
     "requires-options": false,
     "r-variant": true
   },

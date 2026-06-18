@@ -57,7 +57,6 @@ export const DYVIX_MODAL_ELEMENT =
   "D_SELECT": "d-select",
   "AUTOCOMPLETE": "autocomplete",
   "CHECKBOX": "checkbox",
-  "INPUT": "input",
   "FILE": "file"
 }
 export const DYVIX_MODAL_PRESET = 
