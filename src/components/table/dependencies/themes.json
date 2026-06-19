@@ -8,5 +8,10 @@
     "theme": "Crimson",
     "class": "dyvix-table-crimson",
     "default-animation": "float"
+  },
+  {
+    "theme": "Midnight",
+    "class": "dyvix-table-midnight",
+    "default-animation": "drift"
   }
 ]
