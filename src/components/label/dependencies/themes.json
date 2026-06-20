@@ -43,5 +43,10 @@
     "theme": "Forest",
     "class": "dyvix-label-forest",
     "default-animation": "glide"
+  },
+  {
+    "theme": "Neon",
+    "class": "dyvix-label-neon",
+    "default-animation": "pulse"
   }
 ]

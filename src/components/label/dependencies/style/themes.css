@@ -152,3 +152,22 @@
     0 0 30px rgba(75, 58, 42, 0.6);
   transform: translateY(-1px);
 }
+.dyvix-label-neon {
+  font-family: 'Geist';
+  color: #4deeea;
+  text-shadow:
+    0 0 8px rgba(77, 238, 234, 0.7),
+    0 0 20px rgba(240, 0, 255, 0.45);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.dyvix-label-neon:hover {
+  color: #f000ff;
+  text-shadow:
+    0 0 12px rgba(77, 238, 234, 0.9),
+    0 0 30px rgba(240, 0, 255, 0.75);
+  transform: translateY(-1px);
+}
