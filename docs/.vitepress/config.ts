@@ -65,7 +65,8 @@ export default defineConfig({
           { text: 'Button', link: 'components/button/button' },
           { text: 'File', link: 'components/file/file' },
           { text: 'Input', link: 'components/input/input' },
-          { text: 'Label', link: 'components/label/label' }
+          { text: 'Label', link: 'components/label/label' },
+          { text: 'Table', link: 'components/table/table' }
         ]
       }
     ],

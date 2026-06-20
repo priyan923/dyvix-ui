@@ -1,5 +1,8 @@
 ---
 title: Dyvix Label
+next:
+  text: 'Table Component'
+  link: 'components/table/table'
 ---
 
 # Dyvix Label
