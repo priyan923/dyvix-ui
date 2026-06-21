@@ -104,3 +104,40 @@
   -moz-box-shadow: inset 0px 0px 50px 15px rgba(163, 236, 101, 0.28);
   transform: translateY(-2px) scale(1.005);
 }
+
+.dyvix-table-sunset {
+  border-radius: 1rem;
+  font-family: 'Geist';
+
+  background: #1a0a00;
+  background: linear-gradient(
+    135deg,
+    #1a0a00 0%,
+    #3d1a00 40%,
+    #6b2d00 70%,
+    #8b3a00 100%
+  );
+
+  border: 1px solid rgba(255, 198, 15, 0.1);
+  border-bottom: 4px solid #a84600;
+  color: #ffd89b;
+
+  box-shadow: 0px 15px 38px -10px rgba(255, 198, 15, 0.5);
+  -webkit-box-shadow: 0px 15px 38px -10px rgba(255, 198, 15, 0.5);
+  -moz-box-shadow: 0px 15px 38px -10px rgba(255, 198, 15, 0.5);
+
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease-in-out,
+    border-radius 0.2s ease-in-out;
+}
+
+.dyvix-table-sunset:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 20px 50px -10px rgba(255, 198, 15, 0.6);
+  -webkit-box-shadow: 0 20px 50px -10px rgba(255, 198, 15, 0.6);
+  -moz-box-shadow: 0 20px 50px -10px rgba(255, 198, 15, 0.6);
+
+  border-radius: 0.9rem;
+}
