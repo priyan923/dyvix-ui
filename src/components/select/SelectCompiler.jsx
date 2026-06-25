@@ -1,12 +1,10 @@
 import './dependencies/style/styles.css';
 import React from 'react';
 import SelectEngine from './SelectEngine';
-import animationsData from '../animations.json';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
-
-const supportedTypes = ['select', 'autocomplete'];
-const validAnimations = animationsData.map((e) => e.animation);
+import { EvaluateFailure, GuardStatus } from '../../utils/DyvixGuard';
+import { ValidateSelect } from './validation';
 
 /**
  * @param {Object} props
@@ -24,7 +22,8 @@ function DyvixSelect({
   animation = 'fade',
   className,
   placeholder = '',
-  ...props
+  style,
+  ...rest
 }) {
   type = type.includes('-') ? type.split('-')[1] : type;
 
@@ -35,14 +34,12 @@ function DyvixSelect({
     selected: '',
     activeIndex: -1
   });
+  const selectWrapperRef = React.useRef(null);
   const selectRef = React.useRef(null);
+  const [configs, SetConfig] = React.useState({});
+  const instanceId = React.useId();
   const dropdownSelectRef = React.useRef(null);
-  const is_valid = ValidateInput(elements, type, animation);
 
-  if (is_valid.status === -1) {
-    console.error(is_valid.error);
-    return null;
-  }
   function onChangeInternalCallback(data) {
     onChange(data);
   }
@@ -93,9 +90,27 @@ function DyvixSelect({
       is_open: true
     }));
   };
-  const currentAnimation = animationsData.find(
-    (e) => e.animation.trim().toLowerCase() === animation.trim().toLowerCase()
-  );
+  const currentAnimation = animation ? configs['animation'] : null;
+  className = `dyvix-select-wrapper${className !== '' ? ` ${className}` : ''}`;
+
+  React.useEffect(() => {
+    async function validate() {
+      const validator = await ValidateSelect(
+        elements,
+        type,
+        animation,
+        '',
+        SetConfig,
+        instanceId
+      );
+
+      if (validator.status === GuardStatus.Error) {
+        return EvaluateFailure(validator.error, validator.status);
+      }
+    }
+
+    validate();
+  }, [animation]);
 
   function HandleKey(e, controller) {
     if (Select.is_open == false) return;
@@ -138,65 +153,59 @@ function DyvixSelect({
   }
 
   useGSAP(() => {
-    if (!selectRef.current || !currentAnimation) return;
+    if (!selectWrapperRef.current || !currentAnimation) return;
 
-    gsap.fromTo(selectRef.current, currentAnimation.from, {
+    gsap.fromTo(selectWrapperRef.current, currentAnimation.from, {
       ...currentAnimation.to,
       duration: currentAnimation['default-duration'],
       ease: currentAnimation.ease
     });
   }, [currentAnimation]);
+  const props = {
+    className: className,
+    style: style
+  };
 
   return (
-    <div className={`${className} dyvix-select-wrapper`}>
-      <input
-        autoComplete="off"
-        role="combobox"
-        aria-autocomplete="list"
-        aria-expanded={Select.is_open}
-        aria-haspopup="listbox"
-        className={`dyvi-select`}
-        type="text"
-        ref={selectRef}
-        placeholder={placeholder}
-        onChange={(e) => {
-          PopulateSelect(e.target.value, SetSelect, elements);
-          onChangeInternalCallback(e.target.value);
-        }}
-        onFocus={(e) => {
-          TranslateEngineType(e.target.value, 'focus', SetSelect);
-        }}
-        onBlur={(e) => {
-          TranslateEngineType(e.target.value, 'blur', SetSelect);
-        }}
-        onKeyDown={(e) => HandleKey(e, SetSelect)}
-      />
-      <SelectEngine
-        elements={Select.elements}
-        is_open={Select.is_open}
-        is_rendered={Select.is_rendered}
-        inputRef={selectRef}
-        activeIndex={Select.activeIndex}
-        ref={dropdownSelectRef}
-        controller={SetSelect}
-        OnChangeCallback={(value) => onChangeInternalCallback(value)}
-        placeholder={placeholder}
-      />
+    <div {...props} ref={selectWrapperRef}>
+      <div className={`dyvix-select`}>
+        <input
+          {...rest}
+          autoComplete="off"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={Select.is_open}
+          aria-haspopup="listbox"
+          className={`dyvix-select-input`}
+          type="text"
+          ref={selectRef}
+          placeholder={placeholder}
+          onChange={(e) => {
+            PopulateSelect(e.target.value, SetSelect, elements);
+            onChangeInternalCallback(e.target.value);
+          }}
+          onFocus={(e) => {
+            TranslateEngineType(e.target.value, 'focus', SetSelect);
+          }}
+          onBlur={(e) => {
+            TranslateEngineType(e.target.value, 'blur', SetSelect);
+          }}
+          onKeyDown={(e) => HandleKey(e, SetSelect)}
+        />
+        <SelectEngine
+          elements={Select.elements}
+          is_open={Select.is_open}
+          is_rendered={Select.is_rendered}
+          inputRef={selectRef}
+          activeIndex={Select.activeIndex}
+          ref={dropdownSelectRef}
+          controller={SetSelect}
+          OnChangeCallback={(value) => onChangeInternalCallback(value)}
+          placeholder={placeholder}
+        />
+      </div>
     </div>
   );
-}
-
-function ValidateInput(elements, type, animation) {
-  if (!Array.isArray(elements)) {
-    return { status: -1, error: 'Elements should be included as an array.' };
-  }
-  if (!supportedTypes.includes(type)) {
-    return { status: -1, error: 'Please provide a valid select type.' };
-  }
-  if (animation !== '!/' && !validAnimations.includes(animation)) {
-    return { status: -1, error: 'Please provide a valid animation.' };
-  }
-  return { status: 1 };
 }
 
 export default DyvixSelect;
