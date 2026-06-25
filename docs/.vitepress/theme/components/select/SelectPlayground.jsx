@@ -1,4 +1,4 @@
-import { DynamicSelect } from 'dyvix-ui';
+import { DyvixSelect } from 'dyvix-ui';
 import Wrapper from '../Wrapper';
 import React from 'react';
 import { DYVIX_GLOBAL_ANIMATION } from 'dyvix-ui';
@@ -44,7 +44,7 @@ export default function SelectPlayground() {
       componentCallback={setConfig}
       tag={'DynamicSelect'}
     >
-      <DynamicSelect
+      <DyvixSelect
         className="ex-select"
         type="select"
         elements={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}

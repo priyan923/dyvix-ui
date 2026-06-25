@@ -17,7 +17,7 @@ const validAnimations = animationsData.map((e) => e.animation);
  * @param {string} [props.className] - Select class
  * @param {string} [props.placeholder] - Select placeholder
  */
-function DynamicSelect({
+function DyvixSelect({
   elements = [],
   onChange,
   type = 'select',
@@ -199,4 +199,4 @@ function ValidateInput(elements, type, animation) {
   return { status: 1 };
 }
 
-export default DynamicSelect;
+export default DyvixSelect;
