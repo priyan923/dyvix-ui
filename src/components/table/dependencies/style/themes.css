@@ -190,9 +190,9 @@
   font-family: 'Geist';
   background: radial-gradient(
     circle,
-    rgba(77, 238, 234, 0.15) 0%,   /* Cyan with 15% opacity */
-    rgba(112, 186, 239, 0.1) 43%,   /* Soft blue with 10% opacity */
-    rgba(240, 0, 255, 0.15) 100%    /* Magenta with 15% opacity */
+    rgba(77, 238, 234, 0.15) 0%,
+    rgba(112, 186, 239, 0.1) 43%,
+    rgba(240, 0, 255, 0.15) 100%
   );
   border: 2px solid rgba(77, 238, 234, 0.5);
   color: #e0fffe;
@@ -237,6 +237,6 @@
     0 0 120px rgba(77, 238, 234, 0.2),
     inset 0 0 30px rgba(112, 186, 239, 0.1);
 
-  transform: translateY(-2px) scale(1.01);
+  transform: translateY(-2px) scale(1.009);
 }
 
