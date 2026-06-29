@@ -94,7 +94,6 @@ function DyvixSelect({
   };
   const currentAnimation = animation ? configs['animation'] : null;
   const currentTheme = theme !== '!/' ? configs['theme'] : null;
-  console.log(currentTheme);
   className =
     `dyvix-select-wrapper ${currentTheme?.class ?? ''} ${className !== '' ? ` ${className}` : ''}`.trim();
   const dropdownThemeClass = currentTheme?.['dropdown-class'];
