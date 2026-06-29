@@ -266,3 +266,33 @@
   -moz-box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
   transform: translateY(-2px) scale(1.005);
 }
+.dyvix-table-aurora {
+  border-radius: 1rem;
+  font-family: 'Geist';
+  background-color: #04121a;
+  color: #e6fffb;
+  border: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      rgba(20, 232, 30, 1) 0%,
+      rgba(0, 234, 141, 1) 21%,
+      rgba(1, 177, 179, 1) 46%,
+      rgba(1, 126, 213, 1) 76%,
+      rgba(181, 61, 255, 1) 100%
+    )
+    1;
+  box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
+  -webkit-box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
+  -moz-box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
+  transition:
+    box-shadow 0.4s ease-in-out,
+    -webkit-box-shadow 0.4s ease-in-out,
+    -moz-box-shadow 0.4s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.dyvix-table-aurora:hover {
+  box-shadow: 0px 0px 55px 0px rgba(1, 176, 179, 0.55);
+  -webkit-box-shadow: 0px 0px 55px 0px rgba(1, 176, 179, 0.55);
+  -moz-box-shadow: 0px 0px 55px 0px rgba(1, 176, 179, 0.55);
+  transform: translateY(-2px) scale(1.005);
+}
