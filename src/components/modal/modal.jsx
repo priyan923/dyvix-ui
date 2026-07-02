@@ -1,5 +1,5 @@
 import elementsData from './dependencies/elements.json';
-import DynamicSelect from '../select/SelectCompiler';
+import DyvixSelect from '../select/SelectCompiler';
 import validationData from './dependencies/validator/validators.json';
 import typesData from './dependencies/types.json';
 import './dependencies/style/elements.css';
@@ -32,7 +32,7 @@ export const validRules = validationData.map((e) => e.preset);
 
 export const eleData = elementsData;
 const componentsMap = {
-  DynamicSelect: DynamicSelect,
+  DyvixSelect: DyvixSelect,
   DyvixFile: DyvixFile,
   DyvixInput: DyvixInput
 };
@@ -389,7 +389,7 @@ function Modal({
                         ariaProps['aria-required'];
                     }
                     const options =
-                      Tag === 'select' || elementDef.tag === 'DynamicSelect'
+                      Tag === 'select' || elementDef.tag === 'DyvixSelect'
                         ? Array.isArray(field.options[0])
                           ? field.options[j]
                           : field.options
@@ -425,7 +425,7 @@ function Modal({
                         autoComplete:
                           field.type === 'password' ? 'current-password' : 'on'
                       }),
-                      ...(elementDef.tag === 'DynamicSelect' && {
+                      ...(elementDef.tag === 'DyvixSelect' && {
                         elements: options,
                         animation: '!/',
                         className: 'modal-element'

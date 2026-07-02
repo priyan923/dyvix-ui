@@ -56,8 +56,8 @@
   },
   {
     "element": "d-select",
-    "tag": "DynamicSelect",
-    "default-class": "modal-DynamicSelect",
+    "tag": "DyvixSelect",
+    "default-class": "modal-dyvix-select",
     "aria": {
       "role": "combobox",
       "aria-label": ""
