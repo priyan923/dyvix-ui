@@ -268,7 +268,15 @@
 }
 .dyvix-table-aurora {
   font-family: 'Geist';
-  background: linear-gradient(90deg, #14e81e 0%, #00ea8d 21%, #01b1b3 46%, #017ed5 76%, #b53dff 100%) border-box;
+  background: linear-gradient(
+      90deg,
+      #14e81e 0%,
+      #00ea8d 21%,
+      #01b1b3 46%,
+      #017ed5 76%,
+      #b53dff 100%
+    )
+    border-box;
   color: #e6fffb;
   border-image: linear-gradient(
       90deg,

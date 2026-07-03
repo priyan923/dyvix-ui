@@ -16,6 +16,7 @@ const SelectEngine = forwardRef(
       inputRef,
       OnChangeCallback,
       type,
+      background,
       className
     },
     ref
@@ -71,7 +72,7 @@ const SelectEngine = forwardRef(
         itemsRef.current[activeIndex].scrollIntoView({ block: 'nearest' });
       }
     }, [activeIndex]);
-
+console.log(background)
     return (
       <>
         {is_rendered && (
@@ -79,6 +80,7 @@ const SelectEngine = forwardRef(
             className={`dyvix-dropdown-select ${className}`.trim()}
             role="listbox"
             ref={ref}
+            style={{...(background && {'--dyvix-select-dropdown-color': background})}}
           >
             {is_open &&
               elements.map((element, index) => (

@@ -22,6 +22,8 @@ function DyvixSelect({
   type = 'select',
   animation = 'fade',
   theme = '!/',
+  background,
+  dropdownBackground,
   className,
   placeholder = '',
   style,
@@ -174,7 +176,9 @@ function DyvixSelect({
   }, [currentAnimation]);
   const props = {
     className: className,
-    style: style
+    style: {
+    ...style
+  }
   };
   const inputProps = {
     autoComplete: 'off',
@@ -184,6 +188,7 @@ function DyvixSelect({
     'aria-haspopup': 'listbox',
     className: `dyvix-select-input ${inputThemeClass}`.trim(),
     type: 'text',
+    ...(background && { style: { background: background } }),
     ...rest,
     ref: selectRef,
     placeholder: placeholder || undefined,
@@ -212,6 +217,7 @@ function DyvixSelect({
     inputRef: selectRef,
     activeIndex: Select.activeIndex,
     ref: dropdownSelectRef,
+    ...(dropdownBackground && { background: dropdownBackground }),
     ...(dropdownThemeClass && { className: dropdownThemeClass }),
     controller: SetSelect,
     OnChangeCallback: (value) => onChangeInternalCallback(value),

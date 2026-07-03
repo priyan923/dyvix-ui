@@ -49,17 +49,19 @@ export function ModalTest() {
       // background={'Red'}
       //  preset={'ResetPassword'}
       type="auth"
-      elements={[    {
-      type: "d-select",
-      amount: 3,
-      placeholder: ["Select Size", "Choose Color", "Shipping Method"],
-      name: ["Size", "Color", "Method"],
-      options: [
-        ["Small", "Medium", "Large"],
-        ["Red", "Blue", "Green"],
-        ["Standard", "Express", "Prime"]
-      ]
-    }]}
+      elements={[
+        {
+          type: 'd-select',
+          amount: 3,
+          placeholder: ['Select Size', 'Choose Color', 'Shipping Method'],
+          name: ['Size', 'Color', 'Method'],
+          options: [
+            ['Small', 'Medium', 'Large'],
+            ['Red', 'Blue', 'Green'],
+            ['Standard', 'Express', 'Prime']
+          ]
+        }
+      ]}
       onSubmit={(data) => console.log(data)}
       onChange={(data) => console.log(data)}
     />
