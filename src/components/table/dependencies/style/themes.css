@@ -14,6 +14,7 @@
     border ease-in-out 0.3s,
     background ease-in-out 0.2s;
 }
+
 .dyvix-table-lens:hover {
   border: 4px solid #27032f;
   background: radial-gradient(circle, #000000 0%, #1a1a1a 120%);
@@ -35,6 +36,7 @@
     border ease-in-out 0.3s,
     background ease-in-out 0.2s;
 }
+
 .dyvix-table-crimson:hover {
   background: radial-gradient(circle, #2a0000 0%, #0d0000 120%);
   box-shadow: 0 0 50px rgba(255, 77, 77, 0.45);
@@ -62,6 +64,7 @@
     box-shadow 0.5s ease-in-out,
     border-color 0.3s ease-in-out;
 }
+
 .dyvix-table-midnight:hover {
   background: radial-gradient(circle at 40% 40%, #000375 0%, #000000 100%);
   border-color: rgba(112, 168, 247, 0.6);
@@ -81,12 +84,10 @@
   border-radius: 1rem;
   font-family: 'Geist';
   background: #1f3b2c;
-  background: radial-gradient(
-    circle,
-    rgba(31, 59, 44, 1) 14%,
-    rgba(31, 59, 44, 1) 24%,
-    rgba(75, 58, 42, 1) 71%
-  );
+  background: radial-gradient(circle,
+      rgba(31, 59, 44, 1) 14%,
+      rgba(31, 59, 44, 1) 24%,
+      rgba(75, 58, 42, 1) 71%);
   border: 3px double #86a86b;
   color: #d4eec4;
   box-shadow: inset 0px 0px 30px 10px rgba(163, 236, 101, 0.15);
@@ -97,6 +98,7 @@
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
+
 .dyvix-table-forest:hover {
   border-color: #a3ec65;
   box-shadow: inset 0px 0px 50px 15px rgba(163, 236, 101, 0.28);
@@ -110,13 +112,11 @@
   font-family: 'Geist';
 
   background: #1a0a00;
-  background: linear-gradient(
-    135deg,
-    #1a0a00 0%,
-    #3d1a00 40%,
-    #6b2d00 70%,
-    #8b3a00 100%
-  );
+  background: linear-gradient(135deg,
+      #1a0a00 0%,
+      #3d1a00 40%,
+      #6b2d00 70%,
+      #8b3a00 100%);
 
   border: 1px solid rgba(255, 198, 15, 0.1);
   border-bottom: 4px solid #a84600;
@@ -141,6 +141,7 @@
 
   border-radius: 0.9rem;
 }
+
 .dyvix-table-ocean {
   border-radius: 1rem;
   font-family: 'Geist';
@@ -188,12 +189,10 @@
 .dyvix-table-neon {
   border-radius: 1rem;
   font-family: 'Geist';
-  background: radial-gradient(
-    circle,
-    rgba(77, 238, 234, 0.15) 0%,
-    rgba(112, 186, 239, 0.1) 43%,
-    rgba(240, 0, 255, 0.15) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(77, 238, 234, 0.15) 0%,
+      rgba(112, 186, 239, 0.1) 43%,
+      rgba(240, 0, 255, 0.15) 100%);
   border: 2px solid rgba(77, 238, 234, 0.5);
   color: #e0fffe;
   box-shadow:
@@ -258,6 +257,7 @@
     box-shadow 0.2s ease-in-out,
     transform 0.3s ease-in-out;
 }
+
 .dyvix-table-blade:hover {
   border-left: 4px solid #ffffff;
   border-top: 4px solid #ffffff;
@@ -266,19 +266,17 @@
   -moz-box-shadow: -6px -6px 30px rgba(255, 255, 255, 0.1);
   transform: translateY(-2px) scale(1.005);
 }
+
 .dyvix-table-aurora {
   font-family: 'Geist';
   background: linear-gradient(90deg, #14e81e 0%, #00ea8d 21%, #01b1b3 46%, #017ed5 76%, #b53dff 100%) border-box;
   color: #e6fffb;
-  border-image: linear-gradient(
-      90deg,
+  border-image: linear-gradient(90deg,
       rgba(20, 232, 30, 1) 0%,
       rgba(0, 234, 141, 1) 21%,
       rgba(1, 177, 179, 1) 46%,
       rgba(1, 126, 213, 1) 76%,
-      rgba(181, 61, 255, 1) 100%
-    )
-    1;
+      rgba(181, 61, 255, 1) 100%) 1;
   box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
   -webkit-box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
   -moz-box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
@@ -288,9 +286,39 @@
     -moz-box-shadow 0.4s ease-in-out,
     transform 0.3s ease-in-out;
 }
+
 .dyvix-table-aurora:hover {
   box-shadow: 0px 0px 55px 0px rgba(1, 176, 179, 0.55);
   -webkit-box-shadow: 0px 0px 55px 0px rgba(1, 176, 179, 0.55);
   -moz-box-shadow: 0px 0px 55px 0px rgba(1, 176, 179, 0.55);
+  transform: translateY(-2px) scale(1.005);
+}
+
+.dyvix-table-industrial {
+  border-radius: 0.75rem;
+  font-family: 'Geist';
+  background-color: #0a1429;
+  color: #e5e7eb;
+  border: 4px solid #374151;
+
+  box-shadow:
+    inset 0 0 20px rgba(106, 106, 106, 0.1),
+    0 0 20px rgba(106, 106, 106, 0.15);
+
+  transition:
+    box-shadow 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    background-color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.dyvix-table-industrial:hover {
+  border-color: #6a6a6a;
+  background-color: #101f39;
+
+  box-shadow:
+    inset 0 0 30px rgba(106, 106, 106, 0.15),
+    0 0 30px rgba(106, 106, 106, 0.2);
+
   transform: translateY(-2px) scale(1.005);
 }
