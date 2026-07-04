@@ -15,6 +15,7 @@ import tableThemesJSON from '../../components/table/dependencies/themes.json?raw
 import tableThemesCSS from '../../components/table/dependencies/style/themes.css?raw';
 import selectThemesJSON from '../../components/select/dependencies/themes.json?raw';
 import selectThemesCSS from '../../components/select/dependencies/style/themes.css?raw';
+import globalThemesJSON from '../../themeRegistry/themes.json?raw';
 
 export const JSON_LIBRARY = {
   '../../components/button/dependencies/themes.json': buttonThemesJSON,
@@ -26,7 +27,8 @@ export const JSON_LIBRARY = {
   '../../components/input/dependencies/themes.json': inputThemesJSON,
   '../../components/label/dependencies/themes.json': labelThemesJSON,
   '../../components/table/dependencies/themes.json': tableThemesJSON,
-  '../../components/select/dependencies/themes.json': selectThemesJSON
+  '../../components/select/dependencies/themes.json': selectThemesJSON,
+  '../../themeRegistry/themes.json': globalThemesJSON
 };
 
 export const CSS_LIBRARY = {

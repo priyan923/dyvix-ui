@@ -1,4 +1,4 @@
-.dyvix-table-lens {
+.dyvix-table-singularity {
   border-radius: 1rem;
   font-family: 'Geist';
   border: 4px solid #3c0349;
@@ -15,7 +15,7 @@
     background ease-in-out 0.2s;
 }
 
-.dyvix-table-lens:hover {
+.dyvix-table-singularity:hover {
   border: 4px solid #27032f;
   background: radial-gradient(circle, #000000 0%, #1a1a1a 120%);
   box-shadow: 0 0 50px #b903e2;
@@ -310,14 +310,41 @@
   border: 4px solid #6a6a6a;
 
   box-shadow:
-    inset 0 0 20px rgba(106, 106, 106, 0.1),
-    0 0 20px rgba(106, 106, 106, 0.15);
+    inset 0 0 20px rgba(106, 106, 106, .10),
+    0 0 20px rgba(106, 106, 106, .15);
 
   transition:
-    box-shadow 0.3s ease-in-out,
-    border-color 0.3s ease-in-out,
-    background-color 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
+    box-shadow .3s ease,
+    border-color .3s ease,
+    background-color .2s ease,
+    transform .2s ease;
+}
+
+/* HEADER ROW */
+.dyvix-table-industrial thead tr {
+  background: #1b2435;
+}
+
+/* HEADER CELLS */
+.dyvix-table-industrial th {
+  color: #f3f4f6;
+  border-bottom: 2px solid #374151;
+}
+
+/* BODY CELLS */
+.dyvix-table-industrial td {
+  color: #d1d5db;
+  border-bottom: 1px solid #374151;
+}
+
+/* BODY ROW */
+.dyvix-table-industrial tbody tr {
+  background: #0a1429;
+}
+
+/* ROW HOVER */
+.dyvix-table-industrial tbody tr:hover {
+  background: #16233c;
 }
 
 .dyvix-table-industrial:hover {
@@ -325,8 +352,8 @@
   background-color: #101f39;
 
   box-shadow:
-    inset 0 0 30px rgba(106, 106, 106, 0.15),
-    0 0 30px rgba(106, 106, 106, 0.2);
+    inset 0 0 30px rgba(106, 106, 106, .15),
+    0 0 30px rgba(106, 106, 106, .20);
 
   transform: translateY(-2px) scale(1.005);
 }

@@ -1,0 +1,50 @@
+[
+    {
+        "theme": "Singularity",
+        "default-animation": "bubble"
+    },
+    {
+        "theme": "Industrial",
+        "default-animation": "fade"
+    },
+    {
+        "theme": "Ember",
+        "default-animation": "glitch"
+    },
+    {
+        "theme": "Frost",
+        "default-animation": "unfold"
+    },
+    {
+        "theme": "Blade",
+        "default-animation": "zoom"
+    },
+    {
+        "theme": "Neon",
+        "default-animation": "pulse"
+    },
+    {
+        "theme": "Aurora",
+        "default-animation": "aurora"
+    },
+    {
+        "theme": "Sunset",
+        "default-animation": "drop"
+    },
+    {
+        "theme": "Ocean",
+        "default-animation": "flip"
+    },
+    {
+        "theme": "Forest",
+        "default-animation": "glide"
+    },
+    {
+        "theme": "Midnight",
+        "default-animation": "drift"
+    },
+    {
+        "theme": "Crimson",
+        "default-animation": "float"
+    }
+]

@@ -69,6 +69,8 @@ async function cachelayerThree(
   jsonclasskey,
   key
 ) {
+
+
   let JsonArray = null;
   let rawCSS = null;
   let cssResult = null;
@@ -87,7 +89,17 @@ async function cachelayerThree(
       rawCSS = await extractFile(csspath);
     }
   }
+
+
+
   jsonResult = JsonArray.find((e) => e[utility] === jsonKey);
+
+  if (utility === 'theme') {
+
+    jsonResult = await resolveTheme(jsonResult, jsonKey, component);
+
+  }
+
   let value = {
     ...(rawCSS !== null && { CSS: rawCSS }),
     ...(JsonArray !== null && { JSON: JsonArray })
@@ -99,7 +111,11 @@ async function cachelayerThree(
     return null;
   }
 
-  cssResult = await extractCSSClass(jsonResult[jsonclasskey], null, rawCSS);
+  cssResult = await extractCSSClass(
+    jsonResult[jsonclasskey],
+    null,
+    rawCSS
+  );
 
   let result = {
     ...(cssResult !== null && { CSS: cssResult }),
@@ -184,6 +200,9 @@ async function cachelayerOne(
   localStorage.setItem(key, JSON.stringify(cachedData));
 
   const entry = cachedData[jsonKey];
+
+
+
   if (!entry) return null;
 
   jsonResult = entry.JSON;
@@ -234,6 +253,27 @@ function generateCacheKey(component, utility) {
   const key = `DYVIX_${VERSION}_${component}_${utility}`;
 
   return key;
+}
+
+
+async function resolveTheme(localTheme, themeName, component) {
+  if (localTheme) return localTheme;
+
+  const rawGlobalThemes = await extractFile('../../themeRegistry/themes.json');
+
+  const globalThemes =
+    typeof rawGlobalThemes === 'string'
+      ? JSON.parse(rawGlobalThemes)
+      : rawGlobalThemes;
+
+  const theme = globalThemes.find((e) => e.theme === themeName);
+
+  if (!theme) return null;
+
+  return {
+    ...theme,
+    class: `dyvix-${component.toLowerCase()}-${themeName.toLowerCase()}`
+  };
 }
 
 async function extractCSSClass(classname, Csspath = null, cssblock = null) {
