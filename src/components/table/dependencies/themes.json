@@ -45,6 +45,11 @@
     "default-animation": "aurora"
   },
   {
+    "theme": "Ember",
+    "class": "dyvix-table-ember",
+    "default-animation": "glitch"
+  },
+  {
     "theme": "Industrial",
     "class": "dyvix-table-industrial",
     "default-animation": "fade"
