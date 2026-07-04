@@ -23,6 +23,10 @@ A config-driven animated select component with support for normal and autocomple
   - : `string`. Controls the entrance animation of the select. See the [Animation Presets](/guide/animations) for a full list.
 - `className`
   - : `string`. Contains a custom class for your select, allowing more control for the developer.
+- `background`
+  - : `string`. Controls the select background color.
+- `dropdownBackground`
+  - : `string`. Controls the dropdown background color.
 - `placeholder`
   - : `string`. The text displayed when no option is selected.
 
