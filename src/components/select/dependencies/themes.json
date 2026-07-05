@@ -5,5 +5,12 @@
     "input-class": "dyvix-select-input-lens",
     "dropdown-class": "dyvix-select-dropdown-lens",
     "default-animation": "bubble"
+  },
+  {
+    "theme": "Industrial",
+    "class": "dyvix-select-industrial",
+    "input-class": "dyvix-select-input-industrial",
+    "dropdown-class": "dyvix-select-dropdown-industrial",
+    "default-animation": "fade"
   }
 ]
