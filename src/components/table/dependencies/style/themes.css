@@ -84,10 +84,12 @@
   border-radius: 1rem;
   font-family: 'Geist';
   background: #1f3b2c;
-  background: radial-gradient(circle,
-      rgba(31, 59, 44, 1) 14%,
-      rgba(31, 59, 44, 1) 24%,
-      rgba(75, 58, 42, 1) 71%);
+  background: radial-gradient(
+    circle,
+    rgba(31, 59, 44, 1) 14%,
+    rgba(31, 59, 44, 1) 24%,
+    rgba(75, 58, 42, 1) 71%
+  );
   border: 3px double #86a86b;
   color: #d4eec4;
   box-shadow: inset 0px 0px 30px 10px rgba(163, 236, 101, 0.15);
@@ -112,11 +114,13 @@
   font-family: 'Geist';
 
   background: #1a0a00;
-  background: linear-gradient(135deg,
-      #1a0a00 0%,
-      #3d1a00 40%,
-      #6b2d00 70%,
-      #8b3a00 100%);
+  background: linear-gradient(
+    135deg,
+    #1a0a00 0%,
+    #3d1a00 40%,
+    #6b2d00 70%,
+    #8b3a00 100%
+  );
 
   border: 1px solid rgba(255, 198, 15, 0.1);
   border-bottom: 4px solid #a84600;
@@ -189,10 +193,12 @@
 .dyvix-table-neon {
   border-radius: 1rem;
   font-family: 'Geist';
-  background: radial-gradient(circle,
-      rgba(77, 238, 234, 0.15) 0%,
-      rgba(112, 186, 239, 0.1) 43%,
-      rgba(240, 0, 255, 0.15) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(77, 238, 234, 0.15) 0%,
+    rgba(112, 186, 239, 0.1) 43%,
+    rgba(240, 0, 255, 0.15) 100%
+  );
   border: 2px solid rgba(77, 238, 234, 0.5);
   color: #e0fffe;
   box-shadow:
@@ -279,12 +285,15 @@
     )
     border-box;
   color: #e6fffb;
-  border-image: linear-gradient(90deg,
+  border-image: linear-gradient(
+      90deg,
       rgba(20, 232, 30, 1) 0%,
       rgba(0, 234, 141, 1) 21%,
       rgba(1, 177, 179, 1) 46%,
       rgba(1, 126, 213, 1) 76%,
-      rgba(181, 61, 255, 1) 100%) 1;
+      rgba(181, 61, 255, 1) 100%
+    )
+    1;
   box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
   -webkit-box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
   -moz-box-shadow: 0px 0px 35px 0px rgba(1, 176, 179, 0.35);
@@ -310,14 +319,14 @@
   border: 4px solid #6a6a6a;
 
   box-shadow:
-    inset 0 0 20px rgba(106, 106, 106, .10),
-    0 0 20px rgba(106, 106, 106, .15);
+    inset 0 0 20px rgba(106, 106, 106, 0.1),
+    0 0 20px rgba(106, 106, 106, 0.15);
 
   transition:
-    box-shadow .3s ease,
-    border-color .3s ease,
-    background-color .2s ease,
-    transform .2s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 /* HEADER ROW */
@@ -352,8 +361,8 @@
   background-color: #101f39;
 
   box-shadow:
-    inset 0 0 30px rgba(106, 106, 106, .15),
-    0 0 30px rgba(106, 106, 106, .20);
+    inset 0 0 30px rgba(106, 106, 106, 0.15),
+    0 0 30px rgba(106, 106, 106, 0.2);
 
   transform: translateY(-2px) scale(1.005);
 }

@@ -72,7 +72,6 @@ const SelectEngine = forwardRef(
         itemsRef.current[activeIndex].scrollIntoView({ block: 'nearest' });
       }
     }, [activeIndex]);
-
     return (
       <>
         {is_rendered && (
@@ -81,9 +80,8 @@ const SelectEngine = forwardRef(
             role="listbox"
             ref={ref}
             style={{
-              ...(background && { background })
+              ...(background && { '--dyvix-select-dropdown-color': background })
             }}
-
           >
             {is_open &&
               elements.map((element, index) => (

@@ -69,8 +69,6 @@ async function cachelayerThree(
   jsonclasskey,
   key
 ) {
-
-
   let JsonArray = null;
   let rawCSS = null;
   let cssResult = null;
@@ -90,14 +88,10 @@ async function cachelayerThree(
     }
   }
 
-
-
   jsonResult = JsonArray.find((e) => e[utility] === jsonKey);
 
   if (utility === 'theme') {
-
     jsonResult = await resolveTheme(jsonResult, jsonKey, component);
-
   }
 
   let value = {
@@ -111,11 +105,7 @@ async function cachelayerThree(
     return null;
   }
 
-  cssResult = await extractCSSClass(
-    jsonResult[jsonclasskey],
-    null,
-    rawCSS
-  );
+  cssResult = await extractCSSClass(jsonResult[jsonclasskey], null, rawCSS);
 
   let result = {
     ...(cssResult !== null && { CSS: cssResult }),
@@ -201,8 +191,6 @@ async function cachelayerOne(
 
   const entry = cachedData[jsonKey];
 
-
-
   if (!entry) return null;
 
   jsonResult = entry.JSON;
@@ -254,7 +242,6 @@ function generateCacheKey(component, utility) {
 
   return key;
 }
-
 
 async function resolveTheme(localTheme, themeName, component) {
   if (localTheme) return localTheme;
