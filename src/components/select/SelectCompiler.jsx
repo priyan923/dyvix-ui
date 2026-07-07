@@ -177,8 +177,8 @@ function DyvixSelect({
   const props = {
     className: className,
     style: {
-    ...style
-  }
+      ...style
+    }
   };
   const inputProps = {
     autoComplete: 'off',

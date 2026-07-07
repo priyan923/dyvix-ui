@@ -31,6 +31,18 @@ export default function SelectPlayground() {
       format: 'string'
     },
     {
+      utility: 'background',
+      type: 'color',
+      current: undefined,
+      format: 'string'
+    },
+    {
+      utility: 'dropdownBackground',
+      type: 'color',
+      current: undefined,
+      format: 'string'
+    },
+    {
       utility: 'placeholder',
       type: 'text',
       current: 'Select an option',
@@ -41,13 +53,20 @@ export default function SelectPlayground() {
   const type = config.find((e) => e.utility === 'type').current;
   const theme = config.find((e) => e.utility === 'theme').current;
   const animation = config.find((e) => e.utility === 'animation').current;
+  const background = config.find((e) => e.utility === 'background')?.current;
+  const dropdownBackground = config.find(
+    (e) => e.utility === 'dropdownBackground'
+  )?.current;
   const placeholder = config.find((e) => e.utility === 'placeholder').current;
   const props = {
     ...(type && { type }),
     ...(theme && { theme }),
     ...(animation && { animation }),
+    ...(background && { background }),
+    ...(dropdownBackground && { dropdownBackground }),
     ...(placeholder && { placeholder })
   };
+
   return (
     <Wrapper
       componentConfig={config}
